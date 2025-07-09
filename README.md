@@ -116,4 +116,3 @@ Now that you have successfully installed the project you can start using the [UI
 
 We recommend exploring the components using the search bar navigation (`cmd` or `ctrl` + `k`) or by browsing the components section of the sidebar on the left side of this page.
 # gkimpson-Flowbite-Laravel-Tailwind-CSS-Starter
-# gkimpson-Flowbite-Laravel-Tailwind-CSS-Starter
