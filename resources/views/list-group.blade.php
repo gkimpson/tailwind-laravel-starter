@@ -131,7 +131,7 @@
                 <li class="px-6 py-3 sm:py-4">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="Neil image">
+                            <img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Neil+Sims&background=3b82f6&color=fff&size=32" alt="Neil image">
                         </div>
                         <div class="flex-1 min-w-0 ms-4">
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -149,7 +149,7 @@
                 <li class="px-6 py-3 sm:py-4">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Bonnie image">
+                            <img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Bonnie+Green&background=10b981&color=fff&size=32" alt="Bonnie image">
                         </div>
                         <div class="flex-1 min-w-0 ms-4">
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -167,7 +167,7 @@
                 <li class="px-6 py-3 sm:py-4">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Michael image">
+                            <img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Michael+Gough&background=ef4444&color=fff&size=32" alt="Michael image">
                         </div>
                         <div class="flex-1 min-w-0 ms-4">
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -185,7 +185,7 @@
                 <li class="px-6 py-3 sm:py-4">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-4.jpg" alt="Lana image">
+                            <img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Lana+Byrd&background=8b5cf6&color=fff&size=32" alt="Lana image">
                         </div>
                         <div class="flex-1 min-w-0 ms-4">
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -203,7 +203,7 @@
                 <li class="px-6 py-3 sm:py-4">
                     <div class="flex items-center ">
                         <div class="flex-shrink-0">
-                            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Thomas image">
+                            <img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Thomas+Lean&background=f59e0b&color=fff&size=32" alt="Thomas image">
                         </div>
                         <div class="flex-1 min-w-0 ms-4">
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-white">

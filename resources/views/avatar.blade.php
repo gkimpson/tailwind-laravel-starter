@@ -9,11 +9,11 @@
             <div class="mb-8">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Default Avatar</h2>
                 <div class="flex items-center space-x-4">
-                    <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="Avatar">
-                    <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Avatar">
-                    <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Avatar">
-                    <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-4.jpg" alt="Avatar">
-                    <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Avatar">
+                    <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=John+Doe&background=3b82f6&color=fff&size=40" alt="Avatar">
+                    <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Jane+Smith&background=ef4444&color=fff&size=40" alt="Avatar">
+                    <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Mike+Wilson&background=10b981&color=fff&size=40" alt="Avatar">
+                    <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=8b5cf6&color=fff&size=40" alt="Avatar">
+                    <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Alex+Brown&background=f59e0b&color=fff&size=40" alt="Avatar">
                 </div>
             </div>
 
@@ -21,11 +21,11 @@
             <div class="mb-8">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Bordered Avatar</h2>
                 <div class="flex items-center space-x-4">
-                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="Bordered avatar">
-                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-blue-500 dark:ring-blue-400" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Bordered avatar">
-                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-green-500 dark:ring-green-400" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Bordered avatar">
-                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-purple-500 dark:ring-purple-400" src="https://flowbite.com/docs/images/people/profile-picture-4.jpg" alt="Bordered avatar">
-                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-pink-500 dark:ring-pink-400" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Bordered avatar">
+                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://ui-avatars.com/api/?name=John+Doe&background=3b82f6&color=fff&size=40" alt="Bordered avatar">
+                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-blue-500 dark:ring-blue-400" src="https://ui-avatars.com/api/?name=Jane+Smith&background=ef4444&color=fff&size=40" alt="Bordered avatar">
+                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-green-500 dark:ring-green-400" src="https://ui-avatars.com/api/?name=Mike+Wilson&background=10b981&color=fff&size=40" alt="Bordered avatar">
+                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-purple-500 dark:ring-purple-400" src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=8b5cf6&color=fff&size=40" alt="Bordered avatar">
+                    <img class="w-10 h-10 p-1 rounded-full ring-2 ring-pink-500 dark:ring-pink-400" src="https://ui-avatars.com/api/?name=Alex+Brown&background=f59e0b&color=fff&size=40" alt="Bordered avatar">
                 </div>
             </div>
 
@@ -56,19 +56,19 @@
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Dot Indicator Avatar</h2>
                 <div class="flex items-center space-x-4">
                     <div class="relative">
-                        <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="Avatar">
+                        <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=John+Doe&background=3b82f6&color=fff&size=40" alt="Avatar">
                         <span class="top-0 left-7 absolute w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
                     </div>
                     <div class="relative">
-                        <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Avatar">
+                        <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Jane+Smith&background=ef4444&color=fff&size=40" alt="Avatar">
                         <span class="top-0 left-7 absolute w-3.5 h-3.5 bg-red-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
                     </div>
                     <div class="relative">
-                        <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Avatar">
+                        <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Mike+Wilson&background=10b981&color=fff&size=40" alt="Avatar">
                         <span class="top-0 left-7 absolute w-3.5 h-3.5 bg-yellow-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
                     </div>
                     <div class="relative">
-                        <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-4.jpg" alt="Avatar">
+                        <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=8b5cf6&color=fff&size=40" alt="Avatar">
                         <span class="top-0 left-7 absolute w-3.5 h-3.5 bg-gray-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
                     </div>
                 </div>
@@ -78,10 +78,10 @@
             <div class="mb-8">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Stacked Avatar</h2>
                 <div class="flex -space-x-4 rtl:space-x-reverse">
-                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="Avatar">
-                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Avatar">
-                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Avatar">
-                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://flowbite.com/docs/images/people/profile-picture-4.jpg" alt="Avatar">
+                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://ui-avatars.com/api/?name=John+Doe&background=3b82f6&color=fff&size=40" alt="Avatar">
+                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://ui-avatars.com/api/?name=Jane+Smith&background=ef4444&color=fff&size=40" alt="Avatar">
+                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://ui-avatars.com/api/?name=Mike+Wilson&background=10b981&color=fff&size=40" alt="Avatar">
+                    <img class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=8b5cf6&color=fff&size=40" alt="Avatar">
                     <a class="flex items-center justify-center w-10 h-10 text-xs font-medium text-white bg-gray-700 border-2 border-white rounded-full hover:bg-gray-600 dark:border-gray-800" href="#">+99</a>
                 </div>
             </div>
@@ -91,21 +91,21 @@
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Avatar with Text</h2>
                 <div class="space-y-4">
                     <div class="flex items-center space-x-4">
-                        <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="Avatar">
+                        <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=John+Doe&background=3b82f6&color=fff&size=40" alt="Avatar">
                         <div class="font-medium dark:text-white">
                             <div>Jese Leos</div>
                             <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
                         </div>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Avatar">
+                        <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Jane+Smith&background=ef4444&color=fff&size=40" alt="Avatar">
                         <div class="font-medium dark:text-white">
                             <div>Bonnie Green</div>
                             <div class="text-sm text-gray-500 dark:text-gray-400">Joined in December 2020</div>
                         </div>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Avatar">
+                        <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Mike+Wilson&background=10b981&color=fff&size=40" alt="Avatar">
                         <div class="font-medium dark:text-white">
                             <div>Michael Gough</div>
                             <div class="text-sm text-gray-500 dark:text-gray-400">Joined in March 2019</div>
@@ -118,11 +118,11 @@
             <div class="mb-8">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Avatar Sizes</h2>
                 <div class="flex items-center space-x-4">
-                    <img class="w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="Extra small avatar">
-                    <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Small avatar">
-                    <img class="w-10 h-10 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Medium avatar">
-                    <img class="w-20 h-20 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-4.jpg" alt="Large avatar">
-                    <img class="w-36 h-36 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Extra large avatar">
+                    <img class="w-6 h-6 rounded-full" src="https://ui-avatars.com/api/?name=John+Doe&background=3b82f6&color=fff&size=40" alt="Extra small avatar">
+                    <img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=Jane+Smith&background=ef4444&color=fff&size=40" alt="Small avatar">
+                    <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name=Mike+Wilson&background=10b981&color=fff&size=40" alt="Medium avatar">
+                    <img class="w-20 h-20 rounded-full" src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=8b5cf6&color=fff&size=40" alt="Large avatar">
+                    <img class="w-36 h-36 rounded-full" src="https://ui-avatars.com/api/?name=Alex+Brown&background=f59e0b&color=fff&size=40" alt="Extra large avatar">
                 </div>
             </div>
 
@@ -130,11 +130,11 @@
             <div class="mb-8">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Square Avatar</h2>
                 <div class="flex items-center space-x-4">
-                    <img class="w-10 h-10 rounded" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="Square avatar">
-                    <img class="w-10 h-10 rounded" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Square avatar">
-                    <img class="w-10 h-10 rounded" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Square avatar">
-                    <img class="w-10 h-10 rounded" src="https://flowbite.com/docs/images/people/profile-picture-4.jpg" alt="Square avatar">
-                    <img class="w-10 h-10 rounded" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="Square avatar">
+                    <img class="w-10 h-10 rounded" src="https://ui-avatars.com/api/?name=John+Doe&background=3b82f6&color=fff&size=40" alt="Square avatar">
+                    <img class="w-10 h-10 rounded" src="https://ui-avatars.com/api/?name=Jane+Smith&background=ef4444&color=fff&size=40" alt="Square avatar">
+                    <img class="w-10 h-10 rounded" src="https://ui-avatars.com/api/?name=Mike+Wilson&background=10b981&color=fff&size=40" alt="Square avatar">
+                    <img class="w-10 h-10 rounded" src="https://ui-avatars.com/api/?name=Sarah+Johnson&background=8b5cf6&color=fff&size=40" alt="Square avatar">
+                    <img class="w-10 h-10 rounded" src="https://ui-avatars.com/api/?name=Alex+Brown&background=f59e0b&color=fff&size=40" alt="Square avatar">
                 </div>
             </div>
 
@@ -167,7 +167,7 @@
                     <div class="relative">
                         <button id="avatarButton" type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="User photo">
+                            <img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name=John+Doe&background=3b82f6&color=fff&size=40" alt="User photo">
                         </button>
                         <div id="userDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                             <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">

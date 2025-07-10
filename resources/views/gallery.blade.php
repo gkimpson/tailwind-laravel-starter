@@ -13,43 +13,43 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div class="grid gap-4">
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="Gallery image 1">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/400?random=51" alt="Gallery image 1">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="Gallery image 2">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/300?random=52" alt="Gallery image 2">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="Gallery image 3">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="Gallery image 4">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="Gallery image 5">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="Gallery image 6">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/350?random=53" alt="Gallery image 3">
                 </div>
             </div>
             <div class="grid gap-4">
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="Gallery image 7">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/380?random=54" alt="Gallery image 4">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="Gallery image 8">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/320?random=55" alt="Gallery image 5">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="Gallery image 9">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/360?random=56" alt="Gallery image 6">
                 </div>
             </div>
             <div class="grid gap-4">
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="Gallery image 10">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/340?random=57" alt="Gallery image 7">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="Gallery image 11">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/370?random=58" alt="Gallery image 8">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/330?random=59" alt="Gallery image 9">
+                </div>
+            </div>
+            <div class="grid gap-4">
+                <div>
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/390?random=60" alt="Gallery image 10">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/300/280?random=61" alt="Gallery image 11">
                 </div>
             </div>
         </div>
@@ -60,23 +60,23 @@
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Featured Gallery</h2>
         <div class="grid gap-4">
             <div>
-                <img class="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg" alt="Featured image">
+                <img class="h-auto max-w-full rounded-lg" src="https://picsum.photos/800/400?random=70" alt="Featured image">
             </div>
             <div class="grid grid-cols-5 gap-4">
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="Gallery thumbnail 1">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/200/200?random=71" alt="Gallery thumbnail 1">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="Gallery thumbnail 2">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/200/200?random=72" alt="Gallery thumbnail 2">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="Gallery thumbnail 3">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/200/200?random=73" alt="Gallery thumbnail 3">
                 </div>
                 <div>
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="Gallery thumbnail 4">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/200/200?random=74" alt="Gallery thumbnail 4">
                 </div>
                 <div class="relative">
-                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="Gallery thumbnail 5">
+                    <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform duration-300 cursor-pointer" src="https://picsum.photos/200/200?random=75" alt="Gallery thumbnail 5">
                     <div class="absolute inset-0 bg-black bg-opacity-60 rounded-lg flex items-center justify-center hover:bg-opacity-50 transition-colors cursor-pointer">
                         <span class="text-xl font-semibold text-white">+99</span>
                     </div>
@@ -91,7 +91,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow">
                 <div class="relative">
-                    <img class="w-full h-48 object-cover" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-2.jpg" alt="Card image 1">
+                    <img class="w-full h-48 object-cover" src="https://picsum.photos/400/192?random=81" alt="Card image 1">
                     <div class="absolute top-2 right-2">
                         <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">New</span>
                     </div>
@@ -108,7 +108,7 @@
 
             <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow">
                 <div class="relative">
-                    <img class="w-full h-48 object-cover" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-3.jpg" alt="Card image 2">
+                    <img class="w-full h-48 object-cover" src="https://picsum.photos/400/192?random=82" alt="Card image 2">
                     <div class="absolute top-2 right-2">
                         <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Popular</span>
                     </div>
@@ -125,7 +125,7 @@
 
             <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow">
                 <div class="relative">
-                    <img class="w-full h-48 object-cover" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-4.jpg" alt="Card image 3">
+                    <img class="w-full h-48 object-cover" src="https://picsum.photos/400/192?random=83" alt="Card image 3">
                     <div class="absolute top-2 right-2">
                         <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">Featured</span>
                     </div>
@@ -146,8 +146,8 @@
     <div class="mb-8">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Interactive Gallery</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="lightbox-gallery">
-            <div class="relative group cursor-pointer" data-image="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-5.jpg">
-                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-5.jpg" alt="Lightbox image 1">
+            <div class="relative group cursor-pointer" data-image="https://picsum.photos/600/400?random=91">
+                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://picsum.photos/600/400?random=91" alt="Lightbox image 1">
                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg class="w-8 h-8 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
@@ -155,8 +155,8 @@
                     </svg>
                 </div>
             </div>
-            <div class="relative group cursor-pointer" data-image="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-6.jpg">
-                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-6.jpg" alt="Lightbox image 2">
+            <div class="relative group cursor-pointer" data-image="https://picsum.photos/600/400?random=92">
+                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://picsum.photos/600/400?random=92" alt="Lightbox image 2">
                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg class="w-8 h-8 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
@@ -164,8 +164,8 @@
                     </svg>
                 </div>
             </div>
-            <div class="relative group cursor-pointer" data-image="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-7.jpg">
-                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-7.jpg" alt="Lightbox image 3">
+            <div class="relative group cursor-pointer" data-image="https://picsum.photos/600/400?random=93">
+                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://picsum.photos/600/400?random=93" alt="Lightbox image 3">
                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg class="w-8 h-8 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
@@ -173,8 +173,8 @@
                     </svg>
                 </div>
             </div>
-            <div class="relative group cursor-pointer" data-image="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg">
-                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="Lightbox image 4">
+            <div class="relative group cursor-pointer" data-image="https://picsum.photos/400/400?random=94">
+                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://picsum.photos/400/400?random=94" alt="Lightbox image 4">
                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg class="w-8 h-8 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
@@ -182,8 +182,8 @@
                     </svg>
                 </div>
             </div>
-            <div class="relative group cursor-pointer" data-image="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg">
-                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="Lightbox image 5">
+            <div class="relative group cursor-pointer" data-image="https://picsum.photos/400/400?random=95">
+                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://picsum.photos/400/400?random=95" alt="Lightbox image 5">
                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg class="w-8 h-8 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
@@ -191,8 +191,8 @@
                     </svg>
                 </div>
             </div>
-            <div class="relative group cursor-pointer" data-image="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg">
-                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="Lightbox image 6">
+            <div class="relative group cursor-pointer" data-image="https://picsum.photos/400/400?random=96">
+                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://picsum.photos/400/400?random=96" alt="Lightbox image 6">
                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg class="w-8 h-8 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
@@ -200,8 +200,8 @@
                     </svg>
                 </div>
             </div>
-            <div class="relative group cursor-pointer" data-image="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg">
-                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="Lightbox image 7">
+            <div class="relative group cursor-pointer" data-image="https://picsum.photos/400/400?random=97">
+                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://picsum.photos/400/400?random=97" alt="Lightbox image 7">
                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg class="w-8 h-8 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
@@ -209,8 +209,8 @@
                     </svg>
                 </div>
             </div>
-            <div class="relative group cursor-pointer" data-image="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg">
-                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="Lightbox image 8">
+            <div class="relative group cursor-pointer" data-image="https://picsum.photos/400/400?random=98">
+                <img class="h-auto max-w-full rounded-lg group-hover:opacity-75 transition-opacity" src="https://picsum.photos/400/400?random=98" alt="Lightbox image 8">
                 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg class="w-8 h-8 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 12.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/>
@@ -225,12 +225,12 @@
     <div class="mb-8">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Compact Gallery</h2>
         <div class="flex space-x-4 overflow-x-auto pb-4">
-            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="Compact 1">
-            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="Compact 2">
-            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="Compact 3">
-            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="Compact 4">
-            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="Compact 5">
-            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="Compact 6">
+            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://picsum.photos/128/128?random=101" alt="Compact 1">
+            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://picsum.photos/128/128?random=102" alt="Compact 2">
+            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://picsum.photos/128/128?random=103" alt="Compact 3">
+            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://picsum.photos/128/128?random=104" alt="Compact 4">
+            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://picsum.photos/128/128?random=105" alt="Compact 5">
+            <img class="w-32 h-32 rounded-lg object-cover flex-shrink-0 hover:scale-105 transition-transform cursor-pointer" src="https://picsum.photos/128/128?random=106" alt="Compact 6">
         </div>
     </div>
 

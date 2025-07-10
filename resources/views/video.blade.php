@@ -19,7 +19,7 @@
     <!-- Video with Poster -->
     <div class="mb-8">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Video with Poster</h2>
-        <video class="w-full h-auto max-w-full border border-gray-200 rounded-lg dark:border-gray-700" controls poster="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg">
+        <video class="w-full h-auto max-w-full border border-gray-200 rounded-lg dark:border-gray-700" controls poster="https://picsum.photos/800/450?random=201">
             <source src="https://flowbite.com/docs/videos/flowbite.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -29,7 +29,7 @@
     <div class="mb-8">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Custom Video Player</h2>
         <div class="relative">
-            <video id="custom-video" class="w-full h-auto max-w-full border border-gray-200 rounded-lg dark:border-gray-700" poster="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-2.jpg">
+            <video id="custom-video" class="w-full h-auto max-w-full border border-gray-200 rounded-lg dark:border-gray-700" poster="https://picsum.photos/800/450?random=202">
                 <source src="https://flowbite.com/docs/videos/flowbite.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -49,7 +49,7 @@
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
                 <div class="relative">
-                    <img class="rounded-t-lg w-full h-48 object-cover" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-3.jpg" alt="Video thumbnail" />
+                    <img class="rounded-t-lg w-full h-48 object-cover" src="https://picsum.photos/400/192?random=203" alt="Video thumbnail" />
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="flex items-center justify-center w-12 h-12 bg-black bg-opacity-70 rounded-full">
                             <svg class="w-4 h-4 ml-0.5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 10 16">
@@ -97,7 +97,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="relative">
-                    <img class="rounded-t-lg w-full h-32 object-cover" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-4.jpg" alt="Video 1" />
+                    <img class="rounded-t-lg w-full h-32 object-cover" src="https://picsum.photos/400/128?random=204" alt="Video 1" />
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="flex items-center justify-center w-10 h-10 bg-black bg-opacity-70 rounded-full">
                             <svg class="w-3 h-3 ml-0.5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 10 16">
@@ -117,7 +117,7 @@
 
             <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="relative">
-                    <img class="rounded-t-lg w-full h-32 object-cover" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-5.jpg" alt="Video 2" />
+                    <img class="rounded-t-lg w-full h-32 object-cover" src="https://picsum.photos/400/128?random=205" alt="Video 2" />
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="flex items-center justify-center w-10 h-10 bg-black bg-opacity-70 rounded-full">
                             <svg class="w-3 h-3 ml-0.5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 10 16">
@@ -137,7 +137,7 @@
 
             <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="relative">
-                    <img class="rounded-t-lg w-full h-32 object-cover" src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image-6.jpg" alt="Video 3" />
+                    <img class="rounded-t-lg w-full h-32 object-cover" src="https://picsum.photos/400/128?random=206" alt="Video 3" />
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="flex items-center justify-center w-10 h-10 bg-black bg-opacity-70 rounded-full">
                             <svg class="w-3 h-3 ml-0.5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 10 16">
