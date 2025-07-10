@@ -145,6 +145,42 @@ Route::get('/avatar', function () {
     return view('avatar');
 })->name('avatar');
 
+Route::get('/rating', function () {
+    return view('rating');
+})->name('rating');
+
+Route::get('/skeleton', function () {
+    return view('skeleton');
+})->name('skeleton');
+
+Route::get('/kbd', function () {
+    return view('kbd');
+})->name('kbd');
+
+Route::get('/timeline', function () {
+    return view('timeline');
+})->name('timeline');
+
+Route::get('/list-group', function () {
+    return view('list-group');
+})->name('list-group');
+
+Route::get('/description-list', function () {
+    return view('description-list');
+})->name('description-list');
+
+Route::get('/image', function () {
+    return view('image');
+})->name('image');
+
+Route::get('/video', function () {
+    return view('video');
+})->name('video');
+
+Route::get('/gallery', function () {
+    return view('gallery');
+})->name('gallery');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');

@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:flowbite.com)"
+      "WebFetch(domain:flowbite.com)",
+      "WebFetch(domain:laravel.com)",
+      "WebFetch(domain:www.youtube.com)"
     ],
     "deny": []
   }
