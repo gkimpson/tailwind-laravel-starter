@@ -181,6 +181,22 @@ Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');
 
+Route::get('/sidebar', function () {
+    return view('sidebar');
+})->name('sidebar');
+
+Route::get('/footer', function () {
+    return view('footer');
+})->name('footer');
+
+Route::get('/pagination', function () {
+    return view('pagination');
+})->name('pagination');
+
+Route::get('/banner', function () {
+    return view('banner');
+})->name('banner');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
