@@ -175,7 +175,7 @@
                 </div>
                 <div class="mb-5 mt-2 flex space-x-1">
                     <div class="relative">
-                        <img class="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800" src="http://localhost:1313/images/users/helene-engels.png" alt="helene avatar" />
+                        <img class="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800" src="https://ui-avatars.com/api/?name=Helene+Engels&background=3b82f6&color=fff" alt="helene avatar" />
                         <a href="#" class="absolute left-5 top-0 flex h-3.5 w-3.5  items-center justify-center rounded-full border-2 border-white bg-gray-400 hover:bg-gray-500 dark:border-gray-800">
                             <svg aria-hidden="true" class="h-2 w-2 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -188,7 +188,7 @@
                         </a>
                     </div>
                     <div class="relative">
-                        <img class="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800" src="http://localhost:1313/images/users/bonnie-green.png" alt="bonnie avatar" />
+                        <img class="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800" src="https://ui-avatars.com/api/?name=Bonnie+Green&background=10b981&color=fff" alt="bonnie avatar" />
                         <button type="button" class="absolute left-5 top-0 flex h-3.5 w-3.5  items-center justify-center rounded-full border-2 border-white bg-gray-400 hover:bg-gray-500 dark:border-gray-800">
                             <svg aria-hidden="true" class="h-2 w-2 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -201,7 +201,7 @@
                         </button>
                     </div>
                     <div class="relative">
-                        <img class="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800" src="http://localhost:1313/images/users/robert-brown.png" alt="robert avatar" />
+                        <img class="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800" src="https://ui-avatars.com/api/?name=Robert+Brown&background=8b5cf6&color=fff" alt="robert avatar" />
                         <button type="button" class="absolute left-5 top-0 flex h-3.5 w-3.5  items-center justify-center rounded-full border-2 border-white bg-gray-400 hover:bg-gray-500 dark:border-gray-800">
                             <svg aria-hidden="true" class="h-2 w-2 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -214,7 +214,7 @@
                         </button>
                     </div>
                     <div class="relative">
-                        <img class="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800" src="http://localhost:1313/images/users/jese-leos.png" alt="jese avatar" />
+                        <img class="h-8 w-8 rounded-full border-2 border-white dark:border-gray-800" src="https://ui-avatars.com/api/?name=Jese+Leos&background=f59e0b&color=fff" alt="jese avatar" />
                         <button type="button" class="absolute left-5 top-0 flex h-3.5 w-3.5  items-center justify-center rounded-full border-2 border-white bg-gray-400 hover:bg-gray-500 dark:border-gray-800">
                             <svg aria-hidden="true" class="h-2 w-2 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path

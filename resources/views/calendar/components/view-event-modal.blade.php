@@ -50,9 +50,9 @@
                     </dd>
                     <dt class="mb-2 leading-none text-gray-500 dark:text-gray-400">Participants</dt>
                     <dd class="mb-4 flex -space-x-4 sm:mb-5">
-                        <img class="h-8 w-8 rounded-full border-2 border-gray-50 dark:border-gray-700" src="http://localhost:1313/images/users/helene-engels.png" alt="Helene Engels" />
-                        <img class="h-8 w-8 rounded-full border-2 border-gray-50 dark:border-gray-700" src="http://localhost:1313/images/users/robert-brown.png" alt="Robert Brown" />
-                        <img class="h-8 w-8 rounded-full border-2 border-gray-50 dark:border-gray-700" src="http://localhost:1313/images/users/bonnie-green.png" alt="Bonnie Green" />
+                        <img class="h-8 w-8 rounded-full border-2 border-gray-50 dark:border-gray-700" src="https://ui-avatars.com/api/?name=Helene+Engels&background=3b82f6&color=fff" alt="Helene Engels" />
+                        <img class="h-8 w-8 rounded-full border-2 border-gray-50 dark:border-gray-700" src="https://ui-avatars.com/api/?name=Robert+Brown&background=10b981&color=fff" alt="Robert Brown" />
+                        <img class="h-8 w-8 rounded-full border-2 border-gray-50 dark:border-gray-700" src="https://ui-avatars.com/api/?name=Bonnie+Green&background=8b5cf6&color=fff" alt="Bonnie Green" />
                         <button type="button" class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-gray-50 bg-gray-600 text-xs font-medium text-white hover:bg-gray-500 dark:border-gray-700">+9</button>
                     </dd>
                     <dt class="mb-2 leading-none text-gray-500 dark:text-gray-400">Online</dt>
@@ -87,12 +87,12 @@
                         </svg>
                         Edit
                     </button>
-                    <button
-                        type="button"
-                        class="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
-                    >
-                        Preview
-                    </button>
+{{--                    <button--}}
+{{--                        type="button"--}}
+{{--                        class="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"--}}
+{{--                    >--}}
+{{--                        Preview--}}
+{{--                    </button>--}}
                 </div>
                 <button
                     type="button"
