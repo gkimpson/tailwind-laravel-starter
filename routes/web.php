@@ -9,6 +9,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/calendar', function () {
+    return view('calendar');
+})->name('calendar');
+
 Route::get('/accordion', function () {
     return view('accordion');
 })->name('accordion');

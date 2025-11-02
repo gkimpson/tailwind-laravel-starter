@@ -1,0 +1,11 @@
+/* Placeholder CSS for Flowbite calendar demo
+   Replace with the original demo's app.css or your compiled Tailwind CSS.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Some basic spacing for the demo placeholder */
+#calendar { padding: 1rem; }
+
