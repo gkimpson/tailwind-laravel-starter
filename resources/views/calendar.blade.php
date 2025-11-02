@@ -27,7 +27,6 @@
         </div>
     </div>
 
-    <script src="{{ asset('js/app.bundle.js') }}"></script>
     @vite(['resources/js/calendar.js'])
 
 @endsection

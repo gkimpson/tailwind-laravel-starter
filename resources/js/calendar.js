@@ -1,3 +1,10 @@
+// Import FullCalendar modules
+import { Calendar } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+
 // Calendar functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize calendar if calendar element exists
@@ -30,8 +37,9 @@ function initializeCreateEventButton() {
 
 function initializeCalendar() {
     const calendarEl = document.getElementById('calendar');
-    
-    const calendar = new FullCalendar.Calendar(calendarEl, {
+
+    const calendar = new Calendar(calendarEl, {
+        plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
         initialView: 'dayGridMonth',
         headerToolbar: {
             left: 'prev,next today',
