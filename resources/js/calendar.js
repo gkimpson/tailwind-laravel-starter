@@ -13,6 +13,12 @@ let deleteEventModalInstance = null;
 let updateEventDrawerInstance = null;
 let createEventDrawerInstance = null;
 
+// Utility function to cleanup all backdrop elements
+function cleanupBackdrops() {
+    const backdrops = document.querySelectorAll('div[modal-backdrop]');
+    backdrops.forEach(backdrop => backdrop.remove());
+}
+
 // Calendar functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize drawers and modals
@@ -23,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (document.getElementById('editEventDrawer')) {
-        updateEventDrawerInstance = new Drawer(document.getElementById('editEventDrawer'), {
+    if (document.getElementById('updateEventDrawer')) {
+        updateEventDrawerInstance = new Drawer(document.getElementById('updateEventDrawer'), {
             placement: 'right',
             backdrop: true
         });
@@ -51,6 +57,38 @@ document.addEventListener('DOMContentLoaded', function() {
             if (readEventModalInstance) {
                 readEventModalInstance.hide();
             }
+        });
+    }
+
+    // Close delete event modal
+    const closeDeleteEventModalButton = document.getElementById('closeDeleteEventModalButton');
+    if (closeDeleteEventModalButton) {
+        closeDeleteEventModalButton.addEventListener('click', () => {
+            if (deleteEventModalInstance) {
+                deleteEventModalInstance.hide();
+            }
+        });
+    }
+
+    // Cancel delete event modal
+    const cancelDeleteEventModalButton = document.getElementById('cancelDeleteEventModalButton');
+    if (cancelDeleteEventModalButton) {
+        cancelDeleteEventModalButton.addEventListener('click', () => {
+            if (deleteEventModalInstance) {
+                deleteEventModalInstance.hide();
+            }
+        });
+    }
+
+    // Close update event drawer
+    const closeUpdateEventDrawerButton = document.getElementById('closeUpdateEventDrawerButton');
+    if (closeUpdateEventDrawerButton) {
+        closeUpdateEventDrawerButton.addEventListener('click', () => {
+            if (updateEventDrawerInstance) {
+                updateEventDrawerInstance.hide();
+            }
+            // Cleanup any leftover backdrops
+            cleanupBackdrops();
         });
     }
 
@@ -264,11 +302,15 @@ function initializeFormHandlers() {
     if (confirmDeleteBtn) {
         confirmDeleteBtn.addEventListener('click', function() {
             const eventId = document.getElementById('readEventModal').getAttribute('data-event-id');
-            
+
             // Delete event from calendar
             deleteEventFromCalendar(eventId);
-            
+
             // Close modals
+            if (deleteEventModalInstance) {
+                deleteEventModalInstance.hide();
+            }
+
             if (readEventModalInstance) {
                 readEventModalInstance.hide();
             }
@@ -277,12 +319,9 @@ function initializeFormHandlers() {
                 updateEventDrawerInstance.hide();
             }
 
-            // Force remove backdrop
-            const backdrops = document.querySelectorAll('div[modal-backdrop]');
-            backdrops.forEach(backdrop => {
-                backdrop.remove();
-            });
-            
+            // Cleanup all backdrops
+            cleanupBackdrops();
+
             showNotification('Event deleted successfully', 'success');
         });
     }
@@ -293,24 +332,35 @@ function initializeFormHandlers() {
                     updateEventBtn.addEventListener('click', function() {
                         const eventId = document.getElementById('readEventModal').getAttribute('data-event-id');
                         const event = window.calendar.getEventById(eventId);
-                        
+
                         if (event) {
+                            // Hide the read modal first
                             if (readEventModalInstance) {
                                 readEventModalInstance.hide();
                             }
-    
+
+                            // Cleanup any leftover backdrops
+                            cleanupBackdrops();
+
                             // Populate update form with event data
                             document.getElementById('update-title').value = event.title;
                             document.getElementById('update-description').value = event.extendedProps.description || '';
                             document.getElementById('update-start-date').value = event.startStr.split('T')[0];
                             document.getElementById('update-end-date').value = event.end ? event.endStr.split('T')[0] : event.startStr.split('T')[0];
                             document.getElementById('update-location').value = event.extendedProps.location || '';
-                            
+
                             // Set color
                             const colorInput = document.getElementById('editColorsInput');
                             if (colorInput) {
                                 colorInput.value = event.backgroundColor;
                             }
+
+                            // Show update drawer after a short delay to ensure cleanup completes
+                            setTimeout(() => {
+                                if (updateEventDrawerInstance) {
+                                    updateEventDrawerInstance.show();
+                                }
+                            }, 300);
                         }
                     });
                 }
@@ -318,12 +368,20 @@ function initializeFormHandlers() {
                     const updateEventDrawerDeleteButton = document.getElementById('updateEventDrawerDeleteButton');
                     if (updateEventDrawerDeleteButton) {
                         updateEventDrawerDeleteButton.addEventListener('click', () => {
+                            // Hide the update drawer first
                             if (updateEventDrawerInstance) {
                                 updateEventDrawerInstance.hide();
                             }
-                            if (deleteEventModalInstance) {
-                                deleteEventModalInstance.show();
-                            }
+
+                            // Cleanup any leftover backdrops
+                            cleanupBackdrops();
+
+                            // Show delete modal after a short delay to ensure cleanup completes
+                            setTimeout(() => {
+                                if (deleteEventModalInstance) {
+                                    deleteEventModalInstance.show();
+                                }
+                            }, 300);
                         });
                     }
                 
@@ -444,9 +502,13 @@ function deleteEventFromCalendar(eventId) {
 }
 
 function showNotification(message, type = 'info') {
+    // Remove any existing notifications first to prevent duplicates
+    const existingNotifications = document.querySelectorAll('.calendar-notification');
+    existingNotifications.forEach(notif => notif.remove());
+
     // Create notification element
     const notification = document.createElement('div');
-    notification.className = `fixed top-4 right-4 z-50 p-4 mb-4 text-sm text-gray-500 bg-white rounded-lg shadow-sm dark:bg-gray-800 dark:text-gray-400`;
+    notification.className = `calendar-notification fixed top-4 right-4 z-50 p-4 mb-4 text-sm text-gray-500 bg-white rounded-lg shadow-sm dark:bg-gray-800 dark:text-gray-400`;
     notification.innerHTML = `
         <div class="flex items-center">
             <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-${type === 'success' ? 'green' : 'blue'}-100 text-${type === 'success' ? 'green' : 'blue'}-500 dark:bg-${type === 'success' ? 'green' : 'blue'}-800 dark:text-${type === 'success' ? 'green' : 'blue'}-200">
@@ -457,10 +519,10 @@ function showNotification(message, type = 'info') {
             <div class="ml-3 text-sm font-normal">${message}</div>
         </div>
     `;
-    
+
     // Add to document
     document.body.appendChild(notification);
-    
+
     // Remove after 3 seconds
     setTimeout(() => {
         notification.remove();

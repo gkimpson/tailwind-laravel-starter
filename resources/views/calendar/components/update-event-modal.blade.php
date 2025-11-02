@@ -3,6 +3,7 @@
     <h5 id="updateEventDrawerLabel" class="mb-6 inline-flex items-center text-sm font-semibold uppercase text-gray-500 dark:text-gray-400">Update Event</h5>
     <button
         type="button"
+        id="closeUpdateEventDrawerButton"
         data-drawer-dismiss="updateEventDrawer"
         aria-controls="updateEventDrawer"
         class="absolute right-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"

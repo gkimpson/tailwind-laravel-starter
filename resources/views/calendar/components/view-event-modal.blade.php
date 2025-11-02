@@ -70,11 +70,7 @@
                     <button
                         type="button"
                         id="updateEventDrawerButton"
-                        data-drawer-target="updateEventDrawer"
-                        data-drawer-show="updateEventDrawer"
-                        data-modal-hide="readEventModal"
                         aria-controls="updateEventDrawer"
-                        data-drawer-placement="right"
                         class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                     >
                         <svg class="-ms-0.5 me-1.5 h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">

@@ -4,8 +4,8 @@
         <div class="relative rounded-lg bg-white p-4 text-center shadow-sm dark:bg-gray-800 sm:p-5">
             <button
                 type="button"
+                id="closeDeleteEventModalButton"
                 class="absolute right-2.5 top-2.5 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
-                data-modal-toggle="deleteEventModal"
             >
                 <svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -26,7 +26,7 @@
             <p class="mb-4 text-gray-500 dark:text-gray-300">Are you sure you want to delete this item?</p>
             <div class="flex items-center justify-center space-x-4">
                 <button
-                    data-modal-toggle="deleteEventModal"
+                    id="cancelDeleteEventModalButton"
                     type="button"
                     class="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:border-gray-500 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-600"
                 >
