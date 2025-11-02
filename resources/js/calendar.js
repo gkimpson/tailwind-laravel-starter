@@ -5,19 +5,61 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 
+// Import Flowbite components
+import { Modal, Drawer } from 'flowbite';
+
+let readEventModalInstance = null;
+let deleteEventModalInstance = null;
+let updateEventDrawerInstance = null;
+let createEventDrawerInstance = null;
+
 // Calendar functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize drawers and modals
+    if (document.getElementById('createEventDrawer')) {
+        createEventDrawerInstance = new Drawer(document.getElementById('createEventDrawer'), {
+            placement: 'right',
+            backdrop: true
+        });
+    }
+
+    if (document.getElementById('editEventDrawer')) {
+        updateEventDrawerInstance = new Drawer(document.getElementById('editEventDrawer'), {
+            placement: 'right',
+            backdrop: true
+        });
+    }
+
+    // Initialize readEventModal once
+    if (document.getElementById('readEventModal')) {
+        readEventModalInstance = new Modal(document.getElementById('readEventModal'));
+    }
+
+    // Initialize deleteEventModal once
+    if (document.getElementById('deleteEventModal')) {
+        deleteEventModalInstance = new Modal(document.getElementById('deleteEventModal'));
+    }
+
     // Initialize calendar if calendar element exists
     if (document.getElementById('calendar')) {
         initializeCalendar();
     }
-    
+
+    const closeReadEventModalButton = document.getElementById('closeReadEventModalButton');
+    if (closeReadEventModalButton) {
+        closeReadEventModalButton.addEventListener('click', () => {
+            if (readEventModalInstance) {
+                readEventModalInstance.hide();
+            }
+        });
+    }
+
     // Initialize create event button
     initializeCreateEventButton();
-    
+
     // Initialize form handlers
     initializeFormHandlers();
-    
+
     // Initialize color picker
     initializeColorPicker();
 });
@@ -27,10 +69,9 @@ function initializeCreateEventButton() {
     const createEventButton = document.getElementById('createEventButton');
     if (createEventButton) {
         createEventButton.addEventListener('click', function() {
-            const drawer = new Drawer(document.getElementById('createEventDrawer'), {
-                placement: 'right'
-            });
-            drawer.show();
+            if (createEventDrawerInstance) {
+                createEventDrawerInstance.show();
+            }
         });
     }
 }
@@ -97,13 +138,12 @@ function initializeCalendar() {
             // Open create event drawer with selected dates
             document.getElementById('new-start-date').value = arg.startStr.split('T')[0];
             document.getElementById('new-end-date').value = arg.endStr.split('T')[0];
-            
+
             // Show the create event drawer
-            const drawer = new Drawer(document.getElementById('createEventDrawer'), {
-                placement: 'right'
-            });
-            drawer.show();
-            
+            if (createEventDrawerInstance) {
+                createEventDrawerInstance.show();
+            }
+
             calendar.unselect();
         },
         eventClick: function(arg) {
@@ -121,8 +161,9 @@ function initializeCalendar() {
             document.getElementById('readEventModal').setAttribute('data-event-id', event.id);
             
             // Show the modal
-            const modal = new Modal(document.getElementById('readEventModal'));
-            modal.show();
+            if (readEventModalInstance) {
+                readEventModalInstance.show();
+            }
         },
         eventDrop: function(arg) {
             // Handle event drag and drop
@@ -168,8 +209,9 @@ function initializeFormHandlers() {
             addEventToCalendar(eventData);
             
             // Close drawer
-            const drawer = Drawer.getInstance(document.getElementById('createEventDrawer'));
-            drawer.hide();
+            if (createEventDrawerInstance) {
+                createEventDrawerInstance.hide();
+            }
             
             // Reset form
             newEventForm.reset();
@@ -204,12 +246,14 @@ function initializeFormHandlers() {
             updateEventInCalendar(eventData);
             
             // Close drawer
-            const drawer = Drawer.getInstance(document.getElementById('updateEventDrawer'));
-            drawer.hide();
+            if (updateEventDrawerInstance) {
+                updateEventDrawerInstance.hide();
+            }
             
             // Close view modal
-            const modal = Modal.getInstance(document.getElementById('readEventModal'));
-            modal.hide();
+            if (readEventModalInstance) {
+                readEventModalInstance.hide();
+            }
             
             showNotification('Event updated successfully', 'success');
         });
@@ -225,41 +269,72 @@ function initializeFormHandlers() {
             deleteEventFromCalendar(eventId);
             
             // Close modals
-            const deleteModal = Modal.getInstance(document.getElementById('deleteEventModal'));
-            deleteModal.hide();
-            
-            const viewModal = Modal.getInstance(document.getElementById('readEventModal'));
-            viewModal.hide();
+            if (readEventModalInstance) {
+                readEventModalInstance.hide();
+            }
+
+            if (updateEventDrawerInstance) {
+                updateEventDrawerInstance.hide();
+            }
+
+            // Force remove backdrop
+            const backdrops = document.querySelectorAll('div[modal-backdrop]');
+            backdrops.forEach(backdrop => {
+                backdrop.remove();
+            });
             
             showNotification('Event deleted successfully', 'success');
         });
     }
     
-    // Update button in view modal
-    const updateEventBtn = document.getElementById('updateEventDrawerButton');
-    if (updateEventBtn) {
-        updateEventBtn.addEventListener('click', function() {
-            const eventId = document.getElementById('readEventModal').getAttribute('data-event-id');
-            const event = window.calendar.getEventById(eventId);
-            
-            if (event) {
-                // Populate update form with event data
-                document.getElementById('update-title').value = event.title;
-                document.getElementById('update-description').value = event.extendedProps.description || '';
-                document.getElementById('update-start-date').value = event.startStr.split('T')[0];
-                document.getElementById('update-end-date').value = event.end ? event.endStr.split('T')[0] : event.startStr.split('T')[0];
-                document.getElementById('update-location').value = event.extendedProps.location || '';
-                
-                // Set color
-                const colorInput = document.getElementById('editColorsInput');
-                if (colorInput) {
-                    colorInput.value = event.backgroundColor;
-                }
-            }
-        });
-    }
+                // Update button in view modal
+                const updateEventBtn = document.getElementById('updateEventDrawerButton');
+                if (updateEventBtn) {
+                    updateEventBtn.addEventListener('click', function() {
+                        const eventId = document.getElementById('readEventModal').getAttribute('data-event-id');
+                        const event = window.calendar.getEventById(eventId);
+                        
+                        if (event) {
+                            if (readEventModalInstance) {
+                                readEventModalInstance.hide();
+                            }
     
-    // Time range toggle handlers
+                            // Populate update form with event data
+                            document.getElementById('update-title').value = event.title;
+                            document.getElementById('update-description').value = event.extendedProps.description || '';
+                            document.getElementById('update-start-date').value = event.startStr.split('T')[0];
+                            document.getElementById('update-end-date').value = event.end ? event.endStr.split('T')[0] : event.startStr.split('T')[0];
+                            document.getElementById('update-location').value = event.extendedProps.location || '';
+                            
+                            // Set color
+                            const colorInput = document.getElementById('editColorsInput');
+                            if (colorInput) {
+                                colorInput.value = event.backgroundColor;
+                            }
+                        }
+                    });
+                }
+    
+                    const updateEventDrawerDeleteButton = document.getElementById('updateEventDrawerDeleteButton');
+                    if (updateEventDrawerDeleteButton) {
+                        updateEventDrawerDeleteButton.addEventListener('click', () => {
+                            if (updateEventDrawerInstance) {
+                                updateEventDrawerInstance.hide();
+                            }
+                            if (deleteEventModalInstance) {
+                                deleteEventModalInstance.show();
+                            }
+                        });
+                    }
+                
+                    const deleteEventButton = document.getElementById('deleteEventButton');
+                    if (deleteEventButton) {
+                        deleteEventButton.addEventListener('click', () => {
+                            if (deleteEventModalInstance) {
+                                deleteEventModalInstance.show();
+                            }
+                        });
+                    }    // Time range toggle handlers
     const newTimeRangeCheckbox = document.getElementById('select-new-time-range-container');
     const newTimeRangeContainer = document.getElementById('new-time-range-container');
     
