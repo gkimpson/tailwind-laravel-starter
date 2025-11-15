@@ -38,7 +38,7 @@
                 <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
                     <h4 class="text-sm font-semibold text-blue-800 dark:text-blue-300 mb-2">Chart Libraries</h4>
                     <p class="text-sm text-blue-700 dark:text-blue-400">
-                        Flowbite supports ApexCharts for creating interactive charts. Install via: <code class="bg-blue-100 dark:bg-blue-900 px-1 rounded">npm install apexcharts</code>
+                        These interactive charts are powered by ApexCharts with Flowbite theming. Hover over data points to see tooltips, click legends to toggle series, and use zoom controls on the line chart.
                     </p>
                 </div>
             </div>
@@ -272,26 +272,5 @@
         </div>
     </div>
 
-    <script>
-        // Placeholder for chart initialization
-        // In production, you would use ApexCharts or Chart.js here
-        document.addEventListener('DOMContentLoaded', function() {
-            // Create placeholder text for charts
-            const lineChart = document.getElementById('line-chart');
-            const barChart = document.getElementById('bar-chart');
-            const pieChart = document.getElementById('pie-chart');
-
-            if (lineChart) {
-                lineChart.innerHTML = '<div class="flex items-center justify-center h-full text-gray-500 dark:text-gray-400">Line Chart: Install ApexCharts to see live data visualization</div>';
-            }
-
-            if (barChart) {
-                barChart.innerHTML = '<div class="flex items-center justify-center h-full text-gray-500 dark:text-gray-400">Bar Chart: Install ApexCharts to see live data visualization</div>';
-            }
-
-            if (pieChart) {
-                pieChart.innerHTML = '<div class="flex items-center justify-center h-full text-gray-500 dark:text-gray-400">Pie Chart: Install ApexCharts to see live data visualization</div>';
-            }
-        });
-    </script>
+    @vite(['resources/js/charts.js'])
 @endsection
