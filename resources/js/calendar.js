@@ -5,6 +5,7 @@ import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import axios from 'axios';
 import { Modal, Drawer } from 'flowbite';
+import createDateFormatter from './utils/dateFormatter.js';
 
 const calendarApi = axios.create({
     baseURL: '/api/calendar',
@@ -18,6 +19,10 @@ let readEventModalInstance = null;
 let deleteEventModalInstance = null;
 let updateEventDrawerInstance = null;
 let createEventDrawerInstance = null;
+
+// Initialize date formatter with locale from backend
+const calendarLocale = window.calendarConfig?.locale || 'en-US';
+const dateFormatter = createDateFormatter(calendarLocale);
 
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('createEventDrawer')) {
@@ -62,6 +67,7 @@ function initializeCalendar() {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
         },
+        locale: calendarLocale,
         selectable: true,
         editable: true,
         height: 'auto',
@@ -384,17 +390,22 @@ function toggleTimeRangeContainer(checkbox, containerId) {
 }
 
 function formatDisplayDate(date) {
-    return date.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+    return dateFormatter.formatDisplayDate(date);
 }
 
 function formatDisplayTimeRange(start, end) {
-    const startText = formatDisplayTime(start);
-    const endText = end ? formatDisplayTime(end) : '';
-    return endText ? `${startText} - ${endText}` : startText;
+    return dateFormatter.formatTimeRange(start, end);
 }
 
 function formatDisplayTime(date) {
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return dateFormatter.formatTime(date);
+}
+
+function formatDateForInput(isoDateString) {
+    if (!isoDateString) return '';
+    const date = dateFormatter.parseISODate(isoDateString);
+    if (!date) return isoDateString; // Fallback to original if parsing fails
+    return dateFormatter.formatDate(date);
 }
 
 function buildPayload(formData, config) {
@@ -463,10 +474,10 @@ function populateUpdateForm(details) {
     document.getElementById('update-title').value = details.title || '';
     document.getElementById('update-description').value = details.description || '';
     document.getElementById('update-location').value = details.location || '';
-    document.getElementById('update-start-date').value = details.start_date;
-    document.getElementById('update-end-date').value = details.end_date;
+    document.getElementById('update-start-date').value = formatDateForInput(details.start_date);
+    document.getElementById('update-end-date').value = formatDateForInput(details.end_date);
     document.getElementById('update-rrule').value = details.rrule || '';
-    document.getElementById('update-recurrence-end').value = details.recurrence_ends_at || '';
+    document.getElementById('update-recurrence-end').value = formatDateForInput(details.recurrence_ends_at);
 
     const timeToggle = document.getElementById('select-update-time-range-container');
     if (timeToggle) {

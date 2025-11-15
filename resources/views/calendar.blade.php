@@ -27,6 +27,13 @@
         </div>
     </div>
 
+    <script>
+        window.calendarConfig = {
+            locale: @js($calendarLocale),
+            datepickerFormat: @js($datepickerFormat),
+        };
+    </script>
+
     @vite(['resources/js/calendar.js'])
 
 @endsection

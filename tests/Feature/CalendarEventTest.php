@@ -176,5 +176,25 @@ class CalendarEventTest extends TestCase
 
         $this->assertCount(1, $occurrences);
         $this->assertSame('2024-01-11T11:00:00+00:00', $occurrences->first()['start']);
-}
+    }
+
+    public function test_calendar_view_receives_locale_configuration(): void
+    {
+        config(['calendar.locale' => 'en-GB']);
+
+        $response = $this->get('/calendar');
+
+        $response->assertOk();
+        $response->assertViewHas('calendarLocale', 'en-GB');
+    }
+
+    public function test_calendar_view_uses_default_locale_when_not_configured(): void
+    {
+        config(['calendar.locale' => 'en-US']);
+
+        $response = $this->get('/calendar');
+
+        $response->assertOk();
+        $response->assertViewHas('calendarLocale', 'en-US');
+    }
 }

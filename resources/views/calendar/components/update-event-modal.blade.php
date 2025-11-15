@@ -53,7 +53,7 @@
                         datepicker
                         id="update-start-date"
                         name="update-start-date"
-                        datepicker-format="yyyy-mm-dd"
+                        datepicker-format="{{ $datepickerFormat }}"
                         type="text"
                         class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                         value=""
@@ -75,7 +75,7 @@
                         datepicker
                         id="update-end-date"
                         name="update-end-date"
-                        datepicker-format="yyyy-mm-dd"
+                        datepicker-format="{{ $datepickerFormat }}"
                         type="text"
                         class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                         value=""
@@ -182,7 +182,7 @@
                         id="update-recurrence-end"
                         name="update-recurrence-end"
                         datepicker
-                        datepicker-format="yyyy-mm-dd"
+                        datepicker-format="{{ $datepickerFormat }}"
                         class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                         placeholder="Leave empty for no end"
                         datepicker-autohide
