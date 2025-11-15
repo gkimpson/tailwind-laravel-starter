@@ -59,6 +59,8 @@
                     <dd class="mb-4 font-medium text-gray-900 dark:text-white sm:mb-5">Google Meet</dd>
                     <dt class="mb-2 leading-none text-gray-500 dark:text-gray-400">Duration</dt>
                     <dd class="font-medium text-gray-900 dark:text-white" id="readEventTime">All day</dd>
+                    <dt class="mt-4 mb-2 leading-none text-gray-500 dark:text-gray-400">Recurrence</dt>
+                    <dd class="font-medium text-gray-900 dark:text-white" id="readEventRecurrence">One-time event</dd>
                 </dl>
                 <dl>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Details</dt>

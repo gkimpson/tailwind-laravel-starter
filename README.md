@@ -118,3 +118,12 @@ We recommend exploring the components using the search bar navigation (`cmd` or 
 
 If this has installed correctly you should now see many more components -> as shown below
 ![image info](https://i.postimg.cc/GtBXgJ2t/fwbite.png)
+
+## Calendar backend
+
+- Run `php artisan migrate --seed` to create the `calendar_events` table and bootstrapped demo data.
+- The Flowbite calendar now talks to `/api/calendar/events` (list, create, update, delete). Requests accept `start_date`, `end_date`, optional times, `color`, `rrule`, and `recurrence_ends_at`.
+- Recurring events use iCal RRULE strings (e.g. `FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,WE`). Use generators such as <https://calget.com/tools/rrule-generator> to author rules and paste them into the drawer.
+- RRULE expansion is powered by [simshaun/recurr](https://github.com/simshaun/recurr) for parsing/validation, but the API reduces each recurring series down to at most one occurrence per query window so the UI never shows more calendar tiles than database rows.
+- Seeder fixtures exercise simple all-day events plus more complex RRULEs (bi-weekly TU/TH reviews, quarterly “second Thursday” board sessions) so `/calendar` immediately showcases stored recurrence metadata even though only the first occurrence is rendered on the calendar grid.
+- All operations are powered by Laravel 12 controllers/requests, so CSRF tokens are not required for the API routes and the JavaScript client automatically refreshes the calendar after each change.

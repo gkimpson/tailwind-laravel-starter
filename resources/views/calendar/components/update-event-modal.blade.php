@@ -155,6 +155,41 @@
                 </div>
             </div>
             <div>
+                <label for="update-rrule" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Recurring rule (optional)</label>
+                <input
+                    type="text"
+                    id="update-rrule"
+                    name="update-rrule"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                    placeholder="FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=15"
+                />
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Updating the RRULE will apply to the entire series.</p>
+            </div>
+            <div>
+                <label for="update-recurrence-end" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Recurring end date</label>
+                <div class="relative">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                        <svg class="h-5 w-5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                fill-rule="evenodd"
+                                d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                    </div>
+                    <input
+                        type="text"
+                        id="update-recurrence-end"
+                        name="update-recurrence-end"
+                        datepicker
+                        datepicker-format="yyyy-mm-dd"
+                        class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-10 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                        placeholder="Leave empty for no end"
+                        datepicker-autohide
+                    />
+                </div>
+            </div>
+            <div>
                 <label for="add-guests" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Add guests</label>
                 <div class="relative">
                     <input
@@ -232,18 +267,18 @@
             <div>
                 <div class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Tag Color</div>
                 <div class="flex items-center space-x-2">
-                    <button type="button" class="h-6 w-6 rounded-xs bg-purple-500 ring-2 ring-transparent data-[color-selected=true]:ring-purple-300" data-color-picker-target="editColorsInput" data-color-picker-value="purple"></button>
-                    <button type="button" class="h-6 w-6 rounded-xs bg-indigo-500 ring-2 ring-transparent data-[color-selected=true]:ring-indigo-300" data-color-picker-target="editColorsInput" data-color-picker-value="indigo"></button>
-                    <button type="button" class="h-6 w-6 rounded-xs bg-primary-600 ring-2 ring-transparent data-[color-selected=true]:ring-primary-300" data-color-picker-target="editColorsInput" data-color-picker-value="primary"></button>
-                    <button type="button" class="h-6 w-6 rounded-xs bg-pink-500 ring-2 ring-transparent data-[color-selected=true]:ring-pink-300" data-color-picker-target="editColorsInput" data-color-picker-value="pink"></button>
-                    <button type="button" class="h-6 w-6 rounded-xs bg-teal-400 ring-2 ring-transparent data-[color-selected=true]:ring-teal-300" data-color-picker-target="editColorsInput" data-color-picker-value="teal"></button>
-                    <button type="button" class="h-6 w-6 rounded-xs bg-green-400 ring-2 ring-transparent data-[color-selected=true]:ring-green-300" data-color-picker-target="editColorsInput" data-color-picker-value="green"></button>
-                    <button type="button" class="h-6 w-6 rounded-xs bg-yellow-300 ring-2 ring-transparent data-[color-selected=true]:ring-yellow-300" data-color-picker-target="editColorsInput" data-color-picker-value="yellow"></button>
-                    <button type="button" class="h-6 w-6 rounded-xs bg-orange-400 ring-2 ring-transparent data-[color-selected=true]:ring-orange-300" data-color-picker-target="editColorsInput" data-color-picker-value="orange"></button>
-                    <button type="button" class="h-6 w-6 rounded-xs bg-red-500 ring-2 ring-transparent data-[color-selected=true]:ring-red-300" data-color-picker-target="editColorsInput" data-color-picker-value="red"></button>
+                    <button type="button" class="h-6 w-6 rounded-xs bg-purple-500 ring-2 ring-transparent data-[color-selected=true]:ring-purple-300" data-color-picker-target="editColorsInput" data-color-picker-value="#a855f7"></button>
+                    <button type="button" class="h-6 w-6 rounded-xs bg-indigo-500 ring-2 ring-transparent data-[color-selected=true]:ring-indigo-300" data-color-picker-target="editColorsInput" data-color-picker-value="#6366f1"></button>
+                    <button type="button" class="h-6 w-6 rounded-xs bg-primary-600 ring-2 ring-transparent data-[color-selected=true]:ring-primary-300" data-color-picker-target="editColorsInput" data-color-picker-value="#2563eb"></button>
+                    <button type="button" class="h-6 w-6 rounded-xs bg-pink-500 ring-2 ring-transparent data-[color-selected=true]:ring-pink-300" data-color-picker-target="editColorsInput" data-color-picker-value="#ec4899"></button>
+                    <button type="button" class="h-6 w-6 rounded-xs bg-teal-400 ring-2 ring-transparent data-[color-selected=true]:ring-teal-300" data-color-picker-target="editColorsInput" data-color-picker-value="#14b8a6"></button>
+                    <button type="button" class="h-6 w-6 rounded-xs bg-green-400 ring-2 ring-transparent data-[color-selected=true]:ring-green-300" data-color-picker-target="editColorsInput" data-color-picker-value="#22c55e"></button>
+                    <button type="button" class="h-6 w-6 rounded-xs bg-yellow-300 ring-2 ring-transparent data-[color-selected=true]:ring-yellow-300" data-color-picker-target="editColorsInput" data-color-picker-value="#eab308"></button>
+                    <button type="button" class="h-6 w-6 rounded-xs bg-orange-400 ring-2 ring-transparent data-[color-selected=true]:ring-orange-300" data-color-picker-target="editColorsInput" data-color-picker-value="#f97316"></button>
+                    <button type="button" class="h-6 w-6 rounded-xs bg-red-500 ring-2 ring-transparent data-[color-selected=true]:ring-red-300" data-color-picker-target="editColorsInput" data-color-picker-value="#ef4444"></button>
                 </div>
             </div>
-            <input id="editColorsInput" name="update-color" type="hidden" value="primary-600" />
+            <input id="editColorsInput" name="update-color" type="hidden" value="#2563eb" />
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="guest-permission-checkbox">Guest Permissions</label>
                 <div class="space-y-3">

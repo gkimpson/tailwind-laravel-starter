@@ -1,0 +1,20 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "/Users/gavin/Library/Application Support/Herd/bin/php83",
+            "args": [
+                "/Users/gavin/Herd/tailwind-laravel-starter/artisan",
+                "boost:mcp"
+            ]
+        },
+        "herd": {
+            "command": "/Users/gavin/Library/Application Support/Herd/bin/php83",
+            "args": [
+                "/Applications/Herd.app/Contents/Resources/herd-mcp.phar"
+            ],
+            "env": {
+                "SITE_PATH": "/Users/gavin/Herd/tailwind-laravel-starter"
+            }
+        }
+    }
+}

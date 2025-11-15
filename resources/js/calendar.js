@@ -1,118 +1,55 @@
-// Import FullCalendar modules
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
-
-// Import Flowbite components
+import axios from 'axios';
 import { Modal, Drawer } from 'flowbite';
+
+const calendarApi = axios.create({
+    baseURL: '/api/calendar',
+    headers: {
+        Accept: 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+    },
+});
 
 let readEventModalInstance = null;
 let deleteEventModalInstance = null;
 let updateEventDrawerInstance = null;
 let createEventDrawerInstance = null;
 
-// Utility function to cleanup all backdrop elements
-function cleanupBackdrops() {
-    const backdrops = document.querySelectorAll('div[modal-backdrop]');
-    backdrops.forEach(backdrop => backdrop.remove());
-}
-
-// Calendar functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize drawers and modals
+document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('createEventDrawer')) {
         createEventDrawerInstance = new Drawer(document.getElementById('createEventDrawer'), {
             placement: 'right',
-            backdrop: true
+            backdrop: true,
         });
     }
 
     if (document.getElementById('updateEventDrawer')) {
         updateEventDrawerInstance = new Drawer(document.getElementById('updateEventDrawer'), {
             placement: 'right',
-            backdrop: true
+            backdrop: true,
         });
     }
 
-    // Initialize readEventModal once
     if (document.getElementById('readEventModal')) {
         readEventModalInstance = new Modal(document.getElementById('readEventModal'));
     }
 
-    // Initialize deleteEventModal once
     if (document.getElementById('deleteEventModal')) {
         deleteEventModalInstance = new Modal(document.getElementById('deleteEventModal'));
     }
 
-    // Initialize calendar if calendar element exists
     if (document.getElementById('calendar')) {
         initializeCalendar();
     }
 
-    const closeReadEventModalButton = document.getElementById('closeReadEventModalButton');
-    if (closeReadEventModalButton) {
-        closeReadEventModalButton.addEventListener('click', () => {
-            if (readEventModalInstance) {
-                readEventModalInstance.hide();
-            }
-        });
-    }
-
-    // Close delete event modal
-    const closeDeleteEventModalButton = document.getElementById('closeDeleteEventModalButton');
-    if (closeDeleteEventModalButton) {
-        closeDeleteEventModalButton.addEventListener('click', () => {
-            if (deleteEventModalInstance) {
-                deleteEventModalInstance.hide();
-            }
-        });
-    }
-
-    // Cancel delete event modal
-    const cancelDeleteEventModalButton = document.getElementById('cancelDeleteEventModalButton');
-    if (cancelDeleteEventModalButton) {
-        cancelDeleteEventModalButton.addEventListener('click', () => {
-            if (deleteEventModalInstance) {
-                deleteEventModalInstance.hide();
-            }
-        });
-    }
-
-    // Close update event drawer
-    const closeUpdateEventDrawerButton = document.getElementById('closeUpdateEventDrawerButton');
-    if (closeUpdateEventDrawerButton) {
-        closeUpdateEventDrawerButton.addEventListener('click', () => {
-            if (updateEventDrawerInstance) {
-                updateEventDrawerInstance.hide();
-            }
-            // Cleanup any leftover backdrops
-            cleanupBackdrops();
-        });
-    }
-
-    // Initialize create event button
     initializeCreateEventButton();
-
-    // Initialize form handlers
     initializeFormHandlers();
-
-    // Initialize color picker
     initializeColorPicker();
 });
-
-function initializeCreateEventButton() {
-    // Initialize create event button
-    const createEventButton = document.getElementById('createEventButton');
-    if (createEventButton) {
-        createEventButton.addEventListener('click', function() {
-            if (createEventDrawerInstance) {
-                createEventDrawerInstance.show();
-            }
-        });
-    }
-}
 
 function initializeCalendar() {
     const calendarEl = document.getElementById('calendar');
@@ -123,408 +60,475 @@ function initializeCalendar() {
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
         },
-        themeSystem: 'standard',
-        height: 'auto',
-        editable: true,
         selectable: true,
-        selectMirror: true,
-        dayMaxEvents: true,
-        weekends: true,
-        events: [
-            // Sample events - these would come from your backend
-            {
-                id: '1',
-                title: 'Team Meeting',
-                start: new Date(),
-                backgroundColor: '#3B82F6',
-                borderColor: '#3B82F6',
-                extendedProps: {
-                    description: 'Weekly team sync to discuss project progress and upcoming deadlines.',
-                    location: 'Conference Room A',
-                    guests: ['john@example.com', 'jane@example.com']
-                }
-            },
-            {
-                id: '2',
-                title: 'Project Review',
-                start: new Date(Date.now() + 86400000), // Tomorrow
-                backgroundColor: '#10B981',
-                borderColor: '#10B981',
-                extendedProps: {
-                    description: 'Quarterly project review with stakeholders.',
-                    location: 'Main Office',
-                    guests: ['manager@example.com']
-                }
-            },
-            {
-                id: '3',
-                title: 'Design Workshop',
-                start: new Date(Date.now() + 172800000), // Day after tomorrow
-                end: new Date(Date.now() + 259200000), // 3 days from now
-                backgroundColor: '#8B5CF6',
-                borderColor: '#8B5CF6',
-                extendedProps: {
-                    description: 'Creative workshop for the new product design.',
-                    location: 'Design Studio',
-                    guests: ['designer1@example.com', 'designer2@example.com']
-                }
-            }
-        ],
-        select: function(arg) {
-            // Open create event drawer with selected dates
-            document.getElementById('new-start-date').value = arg.startStr.split('T')[0];
-            document.getElementById('new-end-date').value = arg.endStr.split('T')[0];
-
-            // Show the create event drawer
-            if (createEventDrawerInstance) {
-                createEventDrawerInstance.show();
-            }
-
-            calendar.unselect();
-        },
-        eventClick: function(arg) {
-            // Show event details in modal
-            const event = arg.event;
-            document.getElementById('readEventTitle').textContent = event.title;
-            document.getElementById('readEventStartDate').textContent = event.start.toLocaleDateString();
-            document.getElementById('readEventEndDate').textContent = event.end ? event.end.toLocaleDateString() : '';
-            document.getElementById('readEventDescription').textContent = event.extendedProps.description || 'No description.';
-            document.getElementById('readEventLocation').textContent = event.extendedProps.location || 'No location';
-            document.getElementById('readEventTime').textContent = event.allDay ? 'All day' : 
-                `${event.start.toLocaleTimeString()} - ${event.end ? event.end.toLocaleTimeString() : ''}`;
-            
-            // Store event ID for update/delete operations
-            document.getElementById('readEventModal').setAttribute('data-event-id', event.id);
-            
-            // Show the modal
-            if (readEventModalInstance) {
-                readEventModalInstance.show();
-            }
-        },
-        eventDrop: function(arg) {
-            // Handle event drag and drop
-            console.log('Event dropped:', arg.event);
-            // Here you would make an API call to update the event date
-            showNotification('Event date updated', 'success');
-        },
-        eventResize: function(arg) {
-            // Handle event resize
-            console.log('Event resized:', arg.event);
-            // Here you would make an API call to update the event duration
-            showNotification('Event duration updated', 'success');
-        }
+        editable: true,
+        height: 'auto',
+        themeSystem: 'standard',
+        events: fetchEvents,
+        select: handleSelect,
+        eventClick: handleEventClick,
+        eventDrop: handleEventMove,
+        eventResize: handleEventMove,
     });
 
     calendar.render();
-
-    // Make calendar globally accessible
     window.calendar = calendar;
 }
 
+async function fetchEvents(info, successCallback, failureCallback) {
+    try {
+        const response = await calendarApi.get('/events', {
+            params: {
+                start: info.startStr,
+                end: info.endStr,
+            },
+        });
+
+        successCallback(response.data.data || []);
+    } catch (error) {
+        console.error(error);
+        failureCallback(error);
+        showNotification('Unable to load events', 'error');
+    }
+}
+
+function handleSelect(arg) {
+    const startInput = document.getElementById('new-start-date');
+    const endInput = document.getElementById('new-end-date');
+
+    if (startInput) {
+        startInput.value = arg.startStr.split('T')[0];
+    }
+
+    if (endInput) {
+        const endDate = arg.end ? arg.endStr.split('T')[0] : arg.startStr.split('T')[0];
+        endInput.value = endDate;
+    }
+
+    const timeToggle = document.getElementById('select-new-time-range-container');
+    if (timeToggle) {
+        timeToggle.checked = false;
+        toggleTimeRangeContainer(timeToggle, 'new-time-range-container');
+    }
+
+    if (createEventDrawerInstance) {
+        createEventDrawerInstance.show();
+    }
+
+    window.calendar.unselect();
+}
+
+function handleEventClick(arg) {
+    const event = arg.event;
+    const modalEl = document.getElementById('readEventModal');
+
+    if (! modalEl) {
+        return;
+    }
+
+    const eventId = event.extendedProps.event_id || event.id;
+    modalEl.setAttribute('data-event-id', eventId);
+    modalEl.setAttribute('data-occurrence-id', event.id);
+
+    document.getElementById('readEventTitle').textContent = event.title;
+    document.getElementById('readEventStartDate').textContent = formatDisplayDate(event.start);
+    document.getElementById('readEventEndDate').textContent = event.end ? ` → ${formatDisplayDate(event.end)}` : '';
+    document.getElementById('readEventDescription').textContent = event.extendedProps.description || 'No description.';
+    document.getElementById('readEventLocation').textContent = event.extendedProps.location || 'No location';
+    document.getElementById('readEventTime').textContent = event.allDay ? 'All day' : formatDisplayTimeRange(event.start, event.end);
+    document.getElementById('readEventRecurrence').textContent = event.extendedProps.is_recurring && event.extendedProps.rrule
+        ? event.extendedProps.rrule
+        : 'One-time event';
+
+    if (readEventModalInstance) {
+        readEventModalInstance.show();
+    }
+}
+
+async function handleEventMove(arg) {
+    const { event } = arg;
+
+    if (event.extendedProps.is_recurring) {
+        showNotification('Move recurring events via the edit drawer.', 'info');
+        arg.revert();
+        return;
+    }
+
+    try {
+        await persistEventTiming(event);
+        showNotification('Event updated successfully', 'success');
+        window.calendar.refetchEvents();
+    } catch (error) {
+        console.error(error);
+        arg.revert();
+        showNotification('Unable to update event', 'error');
+    }
+}
+
+function initializeCreateEventButton() {
+    const createEventButton = document.getElementById('createEventButton');
+    if (createEventButton && createEventDrawerInstance) {
+        createEventButton.addEventListener('click', () => {
+            createEventDrawerInstance.show();
+        });
+    }
+}
+
 function initializeFormHandlers() {
-    // New event form submission
+    const closeReadEventModalButton = document.getElementById('closeReadEventModalButton');
+    if (closeReadEventModalButton && readEventModalInstance) {
+        closeReadEventModalButton.addEventListener('click', () => readEventModalInstance.hide());
+    }
+
+    const closeUpdateEventDrawerButton = document.getElementById('closeUpdateEventDrawerButton');
+    if (closeUpdateEventDrawerButton && updateEventDrawerInstance) {
+        closeUpdateEventDrawerButton.addEventListener('click', () => {
+            updateEventDrawerInstance.hide();
+            cleanupBackdrops();
+        });
+    }
+
+    const closeDeleteEventModalButton = document.getElementById('closeDeleteEventModalButton');
+    if (closeDeleteEventModalButton && deleteEventModalInstance) {
+        closeDeleteEventModalButton.addEventListener('click', () => deleteEventModalInstance.hide());
+    }
+
+    const cancelDeleteEventModalButton = document.getElementById('cancelDeleteEventModalButton');
+    if (cancelDeleteEventModalButton && deleteEventModalInstance) {
+        cancelDeleteEventModalButton.addEventListener('click', () => deleteEventModalInstance.hide());
+    }
+
+    const deleteEventButton = document.getElementById('deleteEventButton');
+    if (deleteEventButton && deleteEventModalInstance) {
+        deleteEventButton.addEventListener('click', () => deleteEventModalInstance.show());
+    }
+
+    const updateDrawerDeleteButton = document.getElementById('updateEventDrawerDeleteButton');
+    if (updateDrawerDeleteButton && deleteEventModalInstance) {
+        updateDrawerDeleteButton.addEventListener('click', () => deleteEventModalInstance.show());
+    }
+
+    const updateEventBtn = document.getElementById('updateEventDrawerButton');
+    if (updateEventBtn) {
+        updateEventBtn.addEventListener('click', async () => {
+            const eventId = getSelectedEventId();
+            if (! eventId) {
+                return;
+            }
+
+            try {
+                const details = await fetchEventDetails(eventId);
+                populateUpdateForm(details);
+
+                if (readEventModalInstance) {
+                    readEventModalInstance.hide();
+                }
+
+                if (updateEventDrawerInstance) {
+                    updateEventDrawerInstance.show();
+                }
+            } catch (error) {
+                console.error(error);
+                showNotification('Unable to load event details', 'error');
+            }
+        });
+    }
+
     const newEventForm = document.getElementById('newEventForm');
     if (newEventForm) {
-        newEventForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
+        newEventForm.dataset.timezone = newEventForm.dataset.timezone || resolveTimezone();
+        newEventForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
             const formData = new FormData(newEventForm);
-            const eventData = {
-                title: formData.get('new-title'),
-                description: formData.get('new-description'),
-                start: formData.get('new-start-date'),
-                end: formData.get('new-end-date'),
-                location: formData.get('new-location'),
-                color: formData.get('new-color'),
-                startTime: formData.get('new-start-time'),
-                endTime: formData.get('new-end-time'),
-                guests: [] // Would be populated from guest management
-            };
-            
-            // Add event to calendar
-            addEventToCalendar(eventData);
-            
-            // Close drawer
-            if (createEventDrawerInstance) {
-                createEventDrawerInstance.hide();
+
+            try {
+                await calendarApi.post('/events', buildPayload(formData, {
+                    prefix: 'new',
+                    timeToggleId: 'select-new-time-range-container',
+                    recurrenceField: 'new-rrule',
+                    recurrenceEndField: 'new-recurrence-end',
+                    colorField: 'new-color',
+                    timezone: newEventForm.dataset.timezone,
+                }));
+
+                window.calendar.refetchEvents();
+                newEventForm.reset();
+                const timeToggle = document.getElementById('select-new-time-range-container');
+                if (timeToggle) {
+                    timeToggle.checked = false;
+                    toggleTimeRangeContainer(timeToggle, 'new-time-range-container');
+                }
+
+                if (createEventDrawerInstance) {
+                    createEventDrawerInstance.hide();
+                }
+
+                showNotification('Event created successfully', 'success');
+            } catch (error) {
+                console.error(error);
+                showNotification('Unable to create event', 'error');
             }
-            
-            // Reset form
-            newEventForm.reset();
-            
-            showNotification('Event created successfully', 'success');
         });
     }
-    
-    // Update event form submission
+
     const updateEventForm = document.getElementById('updateEventForm');
     if (updateEventForm) {
-        updateEventForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
+        updateEventForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const eventId = getSelectedEventId();
+            if (! eventId) {
+                return;
+            }
+
             const formData = new FormData(updateEventForm);
-            const eventId = document.getElementById('readEventModal').getAttribute('data-event-id');
-            
-            const eventData = {
-                id: eventId,
-                title: formData.get('update-title'),
-                description: formData.get('update-description'),
-                start: formData.get('update-start-date'),
-                end: formData.get('update-end-date'),
-                location: formData.get('update-location'),
-                color: formData.get('update-color'),
-                startTime: formData.get('update-start-time'),
-                endTime: formData.get('update-end-time'),
-                guests: [] // Would be populated from guest management
-            };
-            
-            // Update event in calendar
-            updateEventInCalendar(eventData);
-            
-            // Close drawer
-            if (updateEventDrawerInstance) {
-                updateEventDrawerInstance.hide();
+
+            try {
+                await calendarApi.put(`/events/${eventId}`, buildPayload(formData, {
+                    prefix: 'update',
+                    timeToggleId: 'select-update-time-range-container',
+                    recurrenceField: 'update-rrule',
+                    recurrenceEndField: 'update-recurrence-end',
+                    colorField: 'update-color',
+                    timezone: updateEventForm.dataset.timezone,
+                }));
+
+                window.calendar.refetchEvents();
+                if (updateEventDrawerInstance) {
+                    updateEventDrawerInstance.hide();
+                }
+                if (readEventModalInstance) {
+                    readEventModalInstance.hide();
+                }
+                showNotification('Event updated successfully', 'success');
+            } catch (error) {
+                console.error(error);
+                showNotification('Unable to update event', 'error');
             }
-            
-            // Close view modal
-            if (readEventModalInstance) {
-                readEventModalInstance.hide();
-            }
-            
-            showNotification('Event updated successfully', 'success');
         });
     }
-    
-    // Delete event confirmation
+
     const confirmDeleteBtn = document.getElementById('confirmEventDeleteButton');
     if (confirmDeleteBtn) {
-        confirmDeleteBtn.addEventListener('click', function() {
-            const eventId = document.getElementById('readEventModal').getAttribute('data-event-id');
-
-            // Delete event from calendar
-            deleteEventFromCalendar(eventId);
-
-            // Close modals
-            if (deleteEventModalInstance) {
-                deleteEventModalInstance.hide();
+        confirmDeleteBtn.addEventListener('click', async () => {
+            const eventId = getSelectedEventId();
+            if (! eventId) {
+                return;
             }
 
-            if (readEventModalInstance) {
-                readEventModalInstance.hide();
-            }
+            try {
+                await calendarApi.delete(`/events/${eventId}`);
+                window.calendar.refetchEvents();
 
-            if (updateEventDrawerInstance) {
-                updateEventDrawerInstance.hide();
-            }
-
-            // Cleanup all backdrops
-            cleanupBackdrops();
-
-            showNotification('Event deleted successfully', 'success');
-        });
-    }
-    
-                // Update button in view modal
-                const updateEventBtn = document.getElementById('updateEventDrawerButton');
-                if (updateEventBtn) {
-                    updateEventBtn.addEventListener('click', function() {
-                        const eventId = document.getElementById('readEventModal').getAttribute('data-event-id');
-                        const event = window.calendar.getEventById(eventId);
-
-                        if (event) {
-                            // Hide the read modal first
-                            if (readEventModalInstance) {
-                                readEventModalInstance.hide();
-                            }
-
-                            // Cleanup any leftover backdrops
-                            cleanupBackdrops();
-
-                            // Populate update form with event data
-                            document.getElementById('update-title').value = event.title;
-                            document.getElementById('update-description').value = event.extendedProps.description || '';
-                            document.getElementById('update-start-date').value = event.startStr.split('T')[0];
-                            document.getElementById('update-end-date').value = event.end ? event.endStr.split('T')[0] : event.startStr.split('T')[0];
-                            document.getElementById('update-location').value = event.extendedProps.location || '';
-
-                            // Set color
-                            const colorInput = document.getElementById('editColorsInput');
-                            if (colorInput) {
-                                colorInput.value = event.backgroundColor;
-                            }
-
-                            // Show update drawer after a short delay to ensure cleanup completes
-                            setTimeout(() => {
-                                if (updateEventDrawerInstance) {
-                                    updateEventDrawerInstance.show();
-                                }
-                            }, 300);
-                        }
-                    });
+                if (deleteEventModalInstance) {
+                    deleteEventModalInstance.hide();
                 }
-    
-                    const updateEventDrawerDeleteButton = document.getElementById('updateEventDrawerDeleteButton');
-                    if (updateEventDrawerDeleteButton) {
-                        updateEventDrawerDeleteButton.addEventListener('click', () => {
-                            // Hide the update drawer first
-                            if (updateEventDrawerInstance) {
-                                updateEventDrawerInstance.hide();
-                            }
+                if (readEventModalInstance) {
+                    readEventModalInstance.hide();
+                }
+                if (updateEventDrawerInstance) {
+                    updateEventDrawerInstance.hide();
+                }
 
-                            // Cleanup any leftover backdrops
-                            cleanupBackdrops();
-
-                            // Show delete modal after a short delay to ensure cleanup completes
-                            setTimeout(() => {
-                                if (deleteEventModalInstance) {
-                                    deleteEventModalInstance.show();
-                                }
-                            }, 300);
-                        });
-                    }
-                
-                    const deleteEventButton = document.getElementById('deleteEventButton');
-                    if (deleteEventButton) {
-                        deleteEventButton.addEventListener('click', () => {
-                            if (deleteEventModalInstance) {
-                                deleteEventModalInstance.show();
-                            }
-                        });
-                    }    // Time range toggle handlers
-    const newTimeRangeCheckbox = document.getElementById('select-new-time-range-container');
-    const newTimeRangeContainer = document.getElementById('new-time-range-container');
-    
-    if (newTimeRangeCheckbox && newTimeRangeContainer) {
-        newTimeRangeCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                newTimeRangeContainer.classList.remove('hidden');
-            } else {
-                newTimeRangeContainer.classList.add('hidden');
+                cleanupBackdrops();
+                showNotification('Event deleted successfully', 'success');
+            } catch (error) {
+                console.error(error);
+                showNotification('Unable to delete event', 'error');
             }
         });
     }
-    
-    const updateTimeRangeCheckbox = document.getElementById('select-update-time-range-container');
-    const updateTimeRangeContainer = document.getElementById('update-time-range-container');
-    
-    if (updateTimeRangeCheckbox && updateTimeRangeContainer) {
-        updateTimeRangeCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                updateTimeRangeContainer.classList.remove('hidden');
-            } else {
-                updateTimeRangeContainer.classList.add('hidden');
-            }
-        });
+
+    const timeToggle = document.getElementById('select-new-time-range-container');
+    if (timeToggle) {
+        timeToggle.addEventListener('change', () => toggleTimeRangeContainer(timeToggle, 'new-time-range-container'));
+    }
+
+    const updateTimeToggle = document.getElementById('select-update-time-range-container');
+    if (updateTimeToggle) {
+        updateTimeToggle.addEventListener('change', () => toggleTimeRangeContainer(updateTimeToggle, 'update-time-range-container'));
     }
 }
 
 function initializeColorPicker() {
-    // Color picker for new event
-    const newColorButtons = document.querySelectorAll('[data-color-picker-target="newColorsInput"]');
-    const newColorInput = document.getElementById('newColorsInput');
-    
-    newColorButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove selected state from all buttons
-            newColorButtons.forEach(btn => btn.setAttribute('data-color-selected', 'false'));
-            
-            // Add selected state to clicked button
-            this.setAttribute('data-color-selected', 'true');
-            
-            // Update hidden input
-            if (newColorInput) {
-                newColorInput.value = this.getAttribute('data-color-picker-value') + '-600';
+    const colorButtons = document.querySelectorAll('[data-color-picker-target]');
+
+    colorButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-color-picker-target');
+            const input = document.getElementById(targetId);
+            if (! input) {
+                return;
             }
-        });
-    });
-    
-    // Color picker for update event
-    const editColorButtons = document.querySelectorAll('[data-color-picker-target="editColorsInput"]');
-    const editColorInput = document.getElementById('editColorsInput');
-    
-    editColorButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove selected state from all buttons
-            editColorButtons.forEach(btn => btn.setAttribute('data-color-selected', 'false'));
-            
-            // Add selected state to clicked button
-            this.setAttribute('data-color-selected', 'true');
-            
-            // Update hidden input
-            if (editColorInput) {
-                editColorInput.value = this.getAttribute('data-color-picker-value') + '-600';
-            }
+
+            document.querySelectorAll(`[data-color-picker-target="${targetId}"]`).forEach((btn) => btn.setAttribute('data-color-selected', 'false'));
+
+            button.setAttribute('data-color-selected', 'true');
+            input.value = button.getAttribute('data-color-picker-value');
         });
     });
 }
 
-function addEventToCalendar(eventData) {
-    const newEvent = {
-        id: Date.now().toString(), // Generate unique ID
-        title: eventData.title,
-        start: eventData.start + (eventData.startTime ? 'T' + eventData.startTime : ''),
-        end: eventData.end + (eventData.endTime ? 'T' + eventData.endTime : ''),
-        backgroundColor: eventData.color,
-        borderColor: eventData.color,
-        extendedProps: {
-            description: eventData.description,
-            location: eventData.location,
-            guests: eventData.guests
-        }
+function toggleTimeRangeContainer(checkbox, containerId) {
+    const container = document.getElementById(containerId);
+    if (! container) {
+        return;
+    }
+
+    if (checkbox.checked) {
+        container.classList.remove('hidden');
+    } else {
+        container.classList.add('hidden');
+    }
+}
+
+function formatDisplayDate(date) {
+    return date.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+}
+
+function formatDisplayTimeRange(start, end) {
+    const startText = formatDisplayTime(start);
+    const endText = end ? formatDisplayTime(end) : '';
+    return endText ? `${startText} - ${endText}` : startText;
+}
+
+function formatDisplayTime(date) {
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+function buildPayload(formData, config) {
+    const timeToggle = document.getElementById(config.timeToggleId);
+    const usesTime = timeToggle ? timeToggle.checked : false;
+    const timezone = config.timezone || resolveTimezone();
+
+    return {
+        title: formData.get(`${config.prefix}-title`),
+        description: formData.get(`${config.prefix}-description`) || null,
+        location: formData.get(`${config.prefix}-location`) || null,
+        start_date: formData.get(`${config.prefix}-start-date`),
+        end_date: formData.get(`${config.prefix}-end-date`),
+        start_time: usesTime ? formData.get(`${config.prefix}-start-time`) : null,
+        end_time: usesTime ? formData.get(`${config.prefix}-end-time`) : null,
+        all_day: ! usesTime,
+        color: formData.get(config.colorField) || '#2563eb',
+        rrule: formData.get(config.recurrenceField) || null,
+        recurrence_ends_at: formData.get(config.recurrenceEndField) || null,
+        timezone,
     };
-    
-    window.calendar.addEvent(newEvent);
 }
 
-function updateEventInCalendar(eventData) {
-    const event = window.calendar.getEventById(eventData.id);
-    
-    if (event) {
-        event.setProp('title', eventData.title);
-        event.setProp('description', eventData.description);
-        event.setStart(eventData.start + (eventData.startTime ? 'T' + eventData.startTime : ''));
-        event.setEnd(eventData.end + (eventData.endTime ? 'T' + eventData.endTime : ''));
-        event.setProp('backgroundColor', eventData.color);
-        event.setProp('borderColor', eventData.color);
-        event.setExtendedProp('location', eventData.location);
-        event.setExtendedProp('guests', eventData.guests);
+function resolveTimezone() {
+    try {
+        return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    } catch (error) {
+        return 'UTC';
     }
 }
 
-function deleteEventFromCalendar(eventId) {
-    const event = window.calendar.getEventById(eventId);
-    
-    if (event) {
-        event.remove();
+async function fetchEventDetails(eventId) {
+    const response = await calendarApi.get(`/events/${eventId}`);
+    return response.data.data;
+}
+
+async function persistEventTiming(event) {
+    const eventId = event.extendedProps.event_id || event.id;
+    const details = await fetchEventDetails(eventId);
+
+    const updatedPayload = {
+        ...details,
+        start_date: formatDateValue(event.start),
+        end_date: formatDateValue(event.end ?? event.start),
+        start_time: details.all_day ? null : formatTimeValue(event.start),
+        end_time: details.all_day ? null : formatTimeValue(event.end ?? event.start),
+    };
+
+    await calendarApi.put(`/events/${eventId}`, updatedPayload);
+}
+
+function formatDateValue(date) {
+    return date.toISOString().split('T')[0];
+}
+
+function formatTimeValue(date) {
+    return date.toTimeString().slice(0, 5);
+}
+
+function populateUpdateForm(details) {
+    const updateEventForm = document.getElementById('updateEventForm');
+    if (updateEventForm) {
+        updateEventForm.dataset.timezone = details.timezone || resolveTimezone();
     }
+
+    document.getElementById('update-title').value = details.title || '';
+    document.getElementById('update-description').value = details.description || '';
+    document.getElementById('update-location').value = details.location || '';
+    document.getElementById('update-start-date').value = details.start_date;
+    document.getElementById('update-end-date').value = details.end_date;
+    document.getElementById('update-rrule').value = details.rrule || '';
+    document.getElementById('update-recurrence-end').value = details.recurrence_ends_at || '';
+
+    const timeToggle = document.getElementById('select-update-time-range-container');
+    if (timeToggle) {
+        timeToggle.checked = ! details.all_day;
+        toggleTimeRangeContainer(timeToggle, 'update-time-range-container');
+    }
+
+    document.getElementById('update-start-time').value = details.start_time || '09:00';
+    document.getElementById('update-end-time').value = details.end_time || '10:00';
+
+    setColorSelection('editColorsInput', details.color);
+}
+
+function setColorSelection(inputId, colorValue) {
+    const input = document.getElementById(inputId);
+    if (! input) {
+        return;
+    }
+
+    input.value = colorValue || '#2563eb';
+    document.querySelectorAll(`[data-color-picker-target="${inputId}"]`).forEach((button) => {
+        const isSelected = button.getAttribute('data-color-picker-value') === input.value;
+        button.setAttribute('data-color-selected', String(isSelected));
+    });
+}
+
+function getSelectedEventId() {
+    const modalEl = document.getElementById('readEventModal');
+    return modalEl ? modalEl.getAttribute('data-event-id') : null;
+}
+
+function cleanupBackdrops() {
+    document.querySelectorAll('div[modal-backdrop]').forEach((backdrop) => backdrop.remove());
 }
 
 function showNotification(message, type = 'info') {
-    // Remove any existing notifications first to prevent duplicates
-    const existingNotifications = document.querySelectorAll('.calendar-notification');
-    existingNotifications.forEach(notif => notif.remove());
+    document.querySelectorAll('.calendar-notification').forEach((notif) => notif.remove());
 
-    // Create notification element
+    const colorMap = {
+        success: { base: 'green', bg: 'bg-green-100', dark: 'dark:bg-green-800', text: 'text-green-500', darkText: 'dark:text-green-200' },
+        error: { base: 'red', bg: 'bg-red-100', dark: 'dark:bg-red-800', text: 'text-red-500', darkText: 'dark:text-red-200' },
+        info: { base: 'blue', bg: 'bg-blue-100', dark: 'dark:bg-blue-800', text: 'text-blue-500', darkText: 'dark:text-blue-200' },
+    };
+
+    const palette = colorMap[type] || colorMap.info;
+
     const notification = document.createElement('div');
-    notification.className = `calendar-notification fixed top-4 right-4 z-50 p-4 mb-4 text-sm text-gray-500 bg-white rounded-lg shadow-sm dark:bg-gray-800 dark:text-gray-400`;
+    notification.className = 'calendar-notification fixed top-4 right-4 z-50 w-72 rounded-lg bg-white p-4 text-sm text-gray-600 shadow-sm dark:bg-gray-800 dark:text-gray-300';
     notification.innerHTML = `
         <div class="flex items-center">
-            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg bg-${type === 'success' ? 'green' : 'blue'}-100 text-${type === 'success' ? 'green' : 'blue'}-500 dark:bg-${type === 'success' ? 'green' : 'blue'}-800 dark:text-${type === 'success' ? 'green' : 'blue'}-200">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L9 11.586l3.293 3.293a1 1 0 001.414-1.414l-3.293-3.293z" clip-rule="evenodd"></path>
+            <div class="mr-3 flex h-8 w-8 items-center justify-center rounded-lg ${palette.bg} ${palette.text} ${palette.dark} ${palette.darkText}">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v4a1 1 0 00.293.707l2.5 2.5a1 1 0 101.414-1.414L11 10.586V7z" clip-rule="evenodd"></path>
                 </svg>
             </div>
-            <div class="ml-3 text-sm font-normal">${message}</div>
+            <div>${message}</div>
         </div>
     `;
 
-    // Add to document
     document.body.appendChild(notification);
 
-    // Remove after 3 seconds
     setTimeout(() => {
         notification.remove();
-    }, 3000);
+    }, 4000);
 }
