@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex items-center justify-center h-screen bg-gray-50">
+    <div class="flex items-center justify-center bg-gray-50 pt-5">
         <div>
           <h1 class="mb-6 text-4xl">Flowbite + Laravel + Tailwind CSS Starter</h1>
 
