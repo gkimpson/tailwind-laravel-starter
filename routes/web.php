@@ -78,6 +78,10 @@ Route::get('/mega-menu', function () {
     return view('mega-menu');
 })->name('mega-menu');
 
+Route::get('/bottom-navigation', function () {
+    return view('bottom-navigation');
+})->name('bottom-navigation');
+
 // Form Components
 Route::get('/forms', function () {
     return view('forms');
@@ -112,6 +116,11 @@ Route::get('/button-group', function () {
     return view('button-group');
 })->name('button-group');
 
+// Communication Components
+Route::get('/chat-bubble', function () {
+    return view('chat-bubble');
+})->name('chat-bubble');
+
 // Feedback Components
 Route::get('/alerts', function () {
     return view('alerts');
@@ -137,6 +146,10 @@ Route::get('/badge', function () {
     return view('badge');
 })->name('badge');
 
+Route::get('/clipboard', function () {
+    return view('clipboard');
+})->name('clipboard');
+
 Route::get('/cards', function () {
     return view('cards');
 })->name('cards');
@@ -148,6 +161,10 @@ Route::get('/tables', function () {
 Route::get('/avatar', function () {
     return view('avatar');
 })->name('avatar');
+
+Route::get('/device-mockups', function () {
+    return view('device-mockups');
+})->name('device-mockups');
 
 Route::get('/rating', function () {
     return view('rating');
@@ -161,6 +178,10 @@ Route::get('/kbd', function () {
     return view('kbd');
 })->name('kbd');
 
+Route::get('/stepper', function () {
+    return view('stepper');
+})->name('stepper');
+
 Route::get('/timeline', function () {
     return view('timeline');
 })->name('timeline');
@@ -172,6 +193,10 @@ Route::get('/list-group', function () {
 Route::get('/description-list', function () {
     return view('description-list');
 })->name('description-list');
+
+Route::get('/typography', function () {
+    return view('typography');
+})->name('typography');
 
 Route::get('/image', function () {
     return view('image');
@@ -193,6 +218,10 @@ Route::get('/footer', function () {
     return view('footer');
 })->name('footer');
 
+Route::get('/jumbotron', function () {
+    return view('jumbotron');
+})->name('jumbotron');
+
 Route::get('/pagination', function () {
     return view('pagination');
 })->name('pagination');
@@ -200,6 +229,10 @@ Route::get('/pagination', function () {
 Route::get('/banner', function () {
     return view('banner');
 })->name('banner');
+
+Route::get('/plugins', function () {
+    return view('plugins');
+})->name('plugins');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
