@@ -119,7 +119,11 @@ class CalendarEventController extends Controller
             return null;
         }
 
-        $normalized = strtoupper(trim(Str::replaceFirst('RRULE:', '', $rule)));
+        $normalized = strtoupper(trim($rule));
+
+        if (Str::startsWith($normalized, 'RRULE:')) {
+            $normalized = substr($normalized, 6);
+        }
 
         return $normalized !== '' ? $normalized : null;
     }
