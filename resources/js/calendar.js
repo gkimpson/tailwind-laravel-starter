@@ -19,6 +19,11 @@ let readEventModalInstance = null;
 let deleteEventModalInstance = null;
 let updateEventDrawerInstance = null;
 let createEventDrawerInstance = null;
+const densityStorageKey = 'calendar-density-preference';
+const densityButtons = {
+    compact: null,
+    comfortable: null,
+};
 
 // Initialize date formatter with locale from backend
 const calendarLocale = window.calendarConfig?.locale || 'en-US';
@@ -47,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteEventModalInstance = new Modal(document.getElementById('deleteEventModal'));
     }
 
+    initializeDensityToggle();
+
     if (document.getElementById('calendar')) {
         initializeCalendar();
     }
@@ -55,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeFormHandlers();
     initializeColorPicker();
 });
+
 
 function initializeCalendar() {
     const calendarEl = document.getElementById('calendar');
@@ -68,6 +76,12 @@ function initializeCalendar() {
             right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
         },
         locale: calendarLocale,
+        eventTimeFormat: {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+            meridiem: false,
+        },
         selectable: true,
         editable: true,
         height: 'auto',
@@ -355,6 +369,44 @@ function initializeFormHandlers() {
     if (updateTimeToggle) {
         updateTimeToggle.addEventListener('change', () => toggleTimeRangeContainer(updateTimeToggle, 'update-time-range-container'));
     }
+}
+
+function initializeDensityToggle() {
+    densityButtons.compact = document.getElementById('calendarDensityCompact');
+    densityButtons.comfortable = document.getElementById('calendarDensityComfortable');
+
+    const storedPreference = localStorage.getItem(densityStorageKey) || 'compact';
+    applyDensityMode(storedPreference);
+
+    if (densityButtons.compact) {
+        densityButtons.compact.addEventListener('click', () => applyDensityMode('compact'));
+    }
+
+    if (densityButtons.comfortable) {
+        densityButtons.comfortable.addEventListener('click', () => applyDensityMode('comfortable'));
+    }
+}
+
+function applyDensityMode(mode) {
+    const density = mode === 'comfortable' ? 'comfortable' : 'compact';
+
+    document.documentElement.setAttribute('data-calendar-density', density);
+    localStorage.setItem(densityStorageKey, density);
+    updateDensityButtons(density);
+
+    if (window.calendar && typeof window.calendar.updateSize === 'function') {
+        window.calendar.updateSize();
+    }
+}
+
+function updateDensityButtons(activeDensity) {
+    Object.entries(densityButtons).forEach(([density, button]) => {
+        if (! button) {
+            return;
+        }
+
+        button.setAttribute('aria-pressed', density === activeDensity ? 'true' : 'false');
+    });
 }
 
 function initializeColorPicker() {

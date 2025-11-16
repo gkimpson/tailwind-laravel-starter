@@ -89,11 +89,10 @@ class CalendarEvent extends Model
     {
         $eventEnd = $this->ends_at ?? $this->starts_at;
 
-        return (
+        return
             $this->isWithinRange($this->starts_at, $rangeStart, $rangeEnd) ||
             $this->isWithinRange($eventEnd, $rangeStart, $rangeEnd) ||
-            ($this->starts_at->lte($rangeStart) && $eventEnd->gte($rangeEnd))
-        );
+            ($this->starts_at->lte($rangeStart) && $eventEnd->gte($rangeEnd));
     }
 
     protected function buildRecurringOccurrences(CarbonInterface $rangeStart, CarbonInterface $rangeEnd): Collection
@@ -106,7 +105,7 @@ class CalendarEvent extends Model
 
         $timezone = $this->timezone ?? config('app.timezone');
 
-        $config = (new ArrayTransformerConfig())
+        $config = (new ArrayTransformerConfig)
             ->setVirtualLimit(2000)
             ->enableLastDayOfMonthFix();
 

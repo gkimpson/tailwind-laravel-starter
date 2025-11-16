@@ -70,3 +70,21 @@ select:focus[data-flux-control] {
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
+
+@layer components {
+    [data-calendar-density-toggle] {
+        @apply inline-flex items-center rounded-full border border-gray-200 bg-white p-1 dark:border-gray-700 dark:bg-gray-900;
+    }
+
+    [data-calendar-density-toggle] .density-option {
+        @apply rounded-full px-3 py-1 text-sm font-medium leading-none transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600;
+    }
+
+    [data-calendar-density-toggle] .density-option[aria-pressed='false'] {
+        @apply text-gray-600 dark:text-gray-300;
+    }
+
+    [data-calendar-density-toggle] .density-option[aria-pressed='true'] {
+        @apply bg-blue-600 text-white shadow-sm;
+    }
+}

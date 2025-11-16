@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalendarController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -9,9 +10,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/calendar', function () {
-    return view('calendar');
-})->name('calendar');
+Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar');
 
 Route::get('/accordion', function () {
     return view('accordion');

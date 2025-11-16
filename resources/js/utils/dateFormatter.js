@@ -64,7 +64,7 @@ export function createDateFormatter(locale = 'en-US') {
         }
 
         const dateStr = formatDate(date);
-        const timeStr = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const timeStr = date.toLocaleTimeString(validLocale, { hour: '2-digit', minute: '2-digit', hour12: false });
         return `${dateStr} ${timeStr}`;
     }
 
@@ -80,7 +80,7 @@ export function createDateFormatter(locale = 'en-US') {
             return '';
         }
 
-        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        return date.toLocaleTimeString(validLocale, { hour: '2-digit', minute: '2-digit', hour12: false });
     }
 
     /**
