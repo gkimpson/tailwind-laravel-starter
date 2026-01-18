@@ -144,7 +144,7 @@ function handleEventClick(arg) {
     const event = arg.event;
     const modalEl = document.getElementById('readEventModal');
 
-    if (! modalEl) {
+    if (!modalEl) {
         return;
     }
 
@@ -234,7 +234,7 @@ function initializeFormHandlers() {
     if (updateEventBtn) {
         updateEventBtn.addEventListener('click', async () => {
             const eventId = getSelectedEventId();
-            if (! eventId) {
+            if (!eventId) {
                 return;
             }
 
@@ -298,7 +298,7 @@ function initializeFormHandlers() {
         updateEventForm.addEventListener('submit', async (event) => {
             event.preventDefault();
             const eventId = getSelectedEventId();
-            if (! eventId) {
+            if (!eventId) {
                 return;
             }
 
@@ -333,7 +333,7 @@ function initializeFormHandlers() {
     if (confirmDeleteBtn) {
         confirmDeleteBtn.addEventListener('click', async () => {
             const eventId = getSelectedEventId();
-            if (! eventId) {
+            if (!eventId) {
                 return;
             }
 
@@ -401,7 +401,7 @@ function applyDensityMode(mode) {
 
 function updateDensityButtons(activeDensity) {
     Object.entries(densityButtons).forEach(([density, button]) => {
-        if (! button) {
+        if (!button) {
             return;
         }
 
@@ -416,7 +416,7 @@ function initializeColorPicker() {
         button.addEventListener('click', () => {
             const targetId = button.getAttribute('data-color-picker-target');
             const input = document.getElementById(targetId);
-            if (! input) {
+            if (!input) {
                 return;
             }
 
@@ -430,7 +430,7 @@ function initializeColorPicker() {
 
 function toggleTimeRangeContainer(checkbox, containerId) {
     const container = document.getElementById(containerId);
-    if (! container) {
+    if (!container) {
         return;
     }
 
@@ -473,7 +473,7 @@ function buildPayload(formData, config) {
         end_date: formData.get(`${config.prefix}-end-date`),
         start_time: usesTime ? formData.get(`${config.prefix}-start-time`) : null,
         end_time: usesTime ? formData.get(`${config.prefix}-end-time`) : null,
-        all_day: ! usesTime,
+        all_day: !usesTime,
         color: formData.get(config.colorField) || '#2563eb',
         rrule: formData.get(config.recurrenceField) || null,
         recurrence_ends_at: formData.get(config.recurrenceEndField) || null,
@@ -533,7 +533,7 @@ function populateUpdateForm(details) {
 
     const timeToggle = document.getElementById('select-update-time-range-container');
     if (timeToggle) {
-        timeToggle.checked = ! details.all_day;
+        timeToggle.checked = !details.all_day;
         toggleTimeRangeContainer(timeToggle, 'update-time-range-container');
     }
 
@@ -545,7 +545,7 @@ function populateUpdateForm(details) {
 
 function setColorSelection(inputId, colorValue) {
     const input = document.getElementById(inputId);
-    if (! input) {
+    if (!input) {
         return;
     }
 
